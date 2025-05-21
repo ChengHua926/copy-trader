@@ -1,0 +1,337 @@
+{
+  "description": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm swapped 231153.52657 titcoin for 64.199113652 SOL",
+  "type": "SWAP",
+  "source": "RAYDIUM",
+  "fee": 13005001,
+  "feePayer": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+  "signature": "zFwgLAs8bW57QA8CvyBFPNhyi42BNYKvsmqbwRz5bGMSgAZVsiSczKia8UrHwZ5PT2Brer1Td3NuT9HMFXnpikU",
+  "slot": 340342962,
+  "timestamp": 1747377458,
+  "tokenTransfers": [
+    {
+      "fromTokenAccount": "6qfBqDKrNWjUVbhFcGmJ4i6L1Nwqvg3WRafLXXmADJk4",
+      "toTokenAccount": "4ApBcHpVHmUhzFAdRaNNvrdPxsZ5pGWojpezb4oomj5g",
+      "fromUserAccount": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+      "toUserAccount": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+      "tokenAmount": 231153.52657,
+      "mint": "FtUEW73K6vEYHfbkfpdBZfWpxgQar2HipGdbutEhpump",
+      "tokenStandard": "Fungible"
+    },
+    {
+      "fromTokenAccount": "5JkRhfrWUXVqqVw4fxA7ZfxKfrkAxjw9LwrbRRYBUqKw",
+      "toTokenAccount": "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+      "fromUserAccount": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+      "toUserAccount": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+      "tokenAmount": 64.199113652,
+      "mint": "So11111111111111111111111111111111111111112",
+      "tokenStandard": "Fungible"
+    }
+  ],
+  "nativeTransfers": [
+    {
+      "fromUserAccount": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+      "toUserAccount": "9yMwSPk9mrXSN7yDHUuZurAh1sjbJsfpUqjZ7SvVtdco",
+      "amount": 577792022
+    },
+    {
+      "fromUserAccount": "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+      "toUserAccount": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+      "amount": 64199113652
+    }
+  ],
+  "accountData": [
+    {
+      "account": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+      "nativeBalanceChange": 63608316629,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "4qQM2x2pfhU3ToscAqkQxTfhTm7DmJe8LGWU9kvqeNH4",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "9MJE84SWgXNaqyvnfuDu732NYzmSZ9L9tZBgzg1o4a3w",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "Hin82nMwCrWsQA6xiEjCN4gdYGeGWMSx7agPqmRPRxxS",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "5JkRhfrWUXVqqVw4fxA7ZfxKfrkAxjw9LwrbRRYBUqKw",
+      "nativeBalanceChange": -64199113652,
+      "tokenBalanceChanges": [
+        {
+          "userAccount": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+          "tokenAccount": "5JkRhfrWUXVqqVw4fxA7ZfxKfrkAxjw9LwrbRRYBUqKw",
+          "rawTokenAmount": {
+            "tokenAmount": "-64199113652",
+            "decimals": 9
+          },
+          "mint": "So11111111111111111111111111111111111111112"
+        }
+      ]
+    },
+    {
+      "account": "4ApBcHpVHmUhzFAdRaNNvrdPxsZ5pGWojpezb4oomj5g",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": [
+        {
+          "userAccount": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+          "tokenAccount": "4ApBcHpVHmUhzFAdRaNNvrdPxsZ5pGWojpezb4oomj5g",
+          "rawTokenAmount": {
+            "tokenAmount": "231153526570",
+            "decimals": 6
+          },
+          "mint": "FtUEW73K6vEYHfbkfpdBZfWpxgQar2HipGdbutEhpump"
+        }
+      ]
+    },
+    {
+      "account": "Hqg15ZSWB5VFCEr5puQQJ2rEGHhzkAfmh2FzzoxJvEcS",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "BYCG1cTsoRki2EQJ7W3JYMukWnvEBtbDLUSqeB7ehR2f",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "5EFjBvbV1QH8THmTCdUkvELDnrheeNW3MuFiZqU6dd8y",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "CgpuzQNNAf585jLSne9UJge4JLnH9s1hF4DubyHqCkxN",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "ACXbjHYQzXJvJNd8ZjvYU6n81kkhTJBV8wBzXf7JaFxf",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "98EUC772cdJZxrY5wTGK5kyJpa5mrciBByHvJcJ8appM",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "6qfBqDKrNWjUVbhFcGmJ4i6L1Nwqvg3WRafLXXmADJk4",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": [
+        {
+          "userAccount": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+          "tokenAccount": "6qfBqDKrNWjUVbhFcGmJ4i6L1Nwqvg3WRafLXXmADJk4",
+          "rawTokenAmount": {
+            "tokenAmount": "-231153526570",
+            "decimals": 6
+          },
+          "mint": "FtUEW73K6vEYHfbkfpdBZfWpxgQar2HipGdbutEhpump"
+        }
+      ]
+    },
+    {
+      "account": "9yMwSPk9mrXSN7yDHUuZurAh1sjbJsfpUqjZ7SvVtdco",
+      "nativeBalanceChange": 577792022,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "ComputeBudget111111111111111111111111111111",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "11111111111111111111111111111111",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "So11111111111111111111111111111111111111112",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "7o7WRpw8AaVopRcxYvrr6z9WfcKd3PRdrj9RyhQ74WX3",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "troY36YiPGqMyAYCNbEqYCdN2tb91Zf7bHcQt7KUi61",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "jitodontfront111111111111111117997391111111",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "SysvarRent111111111111111111111111111111111",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    },
+    {
+      "account": "srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX",
+      "nativeBalanceChange": 0,
+      "tokenBalanceChanges": []
+    }
+  ],
+  "transactionError": null,
+  "instructions": [
+    {
+      "accounts": [],
+      "data": "JdumbV",
+      "programId": "ComputeBudget111111111111111111111111111111",
+      "innerInstructions": []
+    },
+    {
+      "accounts": [],
+      "data": "3Kc6BtQTtwy1",
+      "programId": "ComputeBudget111111111111111111111111111111",
+      "innerInstructions": []
+    },
+    {
+      "accounts": [
+        "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+        "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT"
+      ],
+      "data": "3ipZWyz5ZK3VsLD5UHC2LPdpYimNSh6NrcxenmWVxoHMyYCGB6zxERHEYEQtc63kGWDaYjYjBewMjfFkgZ9EKmirYro53dqDhAVdot7aC2wFFymiRQadqwkidh4cDccdUvFuBymQNL2MR3yKJueNMABUuRq4FDRRYSToEkhk4",
+      "programId": "11111111111111111111111111111111",
+      "innerInstructions": []
+    },
+    {
+      "accounts": [
+        "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+        "So11111111111111111111111111111111111111112",
+        "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+        "SysvarRent111111111111111111111111111111111"
+      ],
+      "data": "2",
+      "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "innerInstructions": []
+    },
+    {
+      "accounts": [
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "4qQM2x2pfhU3ToscAqkQxTfhTm7DmJe8LGWU9kvqeNH4",
+        "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+        "9MJE84SWgXNaqyvnfuDu732NYzmSZ9L9tZBgzg1o4a3w",
+        "Hin82nMwCrWsQA6xiEjCN4gdYGeGWMSx7agPqmRPRxxS",
+        "5JkRhfrWUXVqqVw4fxA7ZfxKfrkAxjw9LwrbRRYBUqKw",
+        "4ApBcHpVHmUhzFAdRaNNvrdPxsZ5pGWojpezb4oomj5g",
+        "srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX",
+        "Hqg15ZSWB5VFCEr5puQQJ2rEGHhzkAfmh2FzzoxJvEcS",
+        "BYCG1cTsoRki2EQJ7W3JYMukWnvEBtbDLUSqeB7ehR2f",
+        "5EFjBvbV1QH8THmTCdUkvELDnrheeNW3MuFiZqU6dd8y",
+        "CgpuzQNNAf585jLSne9UJge4JLnH9s1hF4DubyHqCkxN",
+        "ACXbjHYQzXJvJNd8ZjvYU6n81kkhTJBV8wBzXf7JaFxf",
+        "98EUC772cdJZxrY5wTGK5kyJpa5mrciBByHvJcJ8appM",
+        "7o7WRpw8AaVopRcxYvrr6z9WfcKd3PRdrj9RyhQ74WX3",
+        "6qfBqDKrNWjUVbhFcGmJ4i6L1Nwqvg3WRafLXXmADJk4",
+        "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+        "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm"
+      ],
+      "data": "5zok4YZ1azBkR6ZGEkP6QP1",
+      "programId": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+      "innerInstructions": [
+        {
+          "accounts": [
+            "6qfBqDKrNWjUVbhFcGmJ4i6L1Nwqvg3WRafLXXmADJk4",
+            "4ApBcHpVHmUhzFAdRaNNvrdPxsZ5pGWojpezb4oomj5g",
+            "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm"
+          ],
+          "data": "3LdoPFnZJLmM",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "accounts": [
+            "5JkRhfrWUXVqqVw4fxA7ZfxKfrkAxjw9LwrbRRYBUqKw",
+            "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+            "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+          ],
+          "data": "3jgtwEMvdLoy",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ]
+    },
+    {
+      "accounts": [
+        "GqFZTbb5uXHz7GBBdm28xcWg8gfrowwXSv5uTipLn9mT",
+        "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+        "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm"
+      ],
+      "data": "A",
+      "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "innerInstructions": []
+    },
+    {
+      "accounts": [
+        "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+        "9yMwSPk9mrXSN7yDHUuZurAh1sjbJsfpUqjZ7SvVtdco",
+        "jitodontfront111111111111111117997391111111",
+        "11111111111111111111111111111111"
+      ],
+      "data": "TBXxREN7AVerQRicmm71jD",
+      "programId": "troY36YiPGqMyAYCNbEqYCdN2tb91Zf7bHcQt7KUi61",
+      "innerInstructions": [
+        {
+          "accounts": [
+            "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+            "9yMwSPk9mrXSN7yDHUuZurAh1sjbJsfpUqjZ7SvVtdco"
+          ],
+          "data": "3Bxs44c3bbVSkPf5",
+          "programId": "11111111111111111111111111111111"
+        }
+      ]
+    }
+  ],
+  "events": {
+    "swap": {
+      "nativeInput": null,
+      "nativeOutput": {
+        "account": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+        "amount": "64199113652"
+      },
+      "tokenInputs": [
+        {
+          "userAccount": "DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm",
+          "tokenAccount": "6qfBqDKrNWjUVbhFcGmJ4i6L1Nwqvg3WRafLXXmADJk4",
+          "rawTokenAmount": {
+            "tokenAmount": "231153526570",
+            "decimals": 6
+          },
+          "mint": "FtUEW73K6vEYHfbkfpdBZfWpxgQar2HipGdbutEhpump"
+        }
+      ],
+      "tokenOutputs": [],
+      "nativeFees": [],
+      "tokenFees": [],
+      "innerSwaps": []
+    }
+  }
+}
