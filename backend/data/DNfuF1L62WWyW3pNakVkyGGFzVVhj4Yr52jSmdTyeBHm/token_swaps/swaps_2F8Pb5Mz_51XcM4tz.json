@@ -39,44 +39,6 @@
       "totalValueUsd": 78.200800305
     },
     {
-      "transactionHash": "4hYmeLSWQ7A42fV5FVv9ep8iABtk78HKNLLoPhBAigNkmhPZqeAvNyM5YHji8Fev6gvFoTDifWZnxhyqVwjkpEwx",
-      "transactionType": "sell",
-      "transactionIndex": 460,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-11T04:42:00.000Z",
-      "blockNumber": 339234236,
-      "walletAddress": "9igezfPuK4dYg7kzCmQizAw3KTTSscvQUVZ4WMebMVZ4",
-      "pairAddress": "9pFULAVcS2n5YRAkHyEzpYv3RQ272wiXuLrh163qvs4m",
-      "pairLabel": "RATO/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "15.134794910",
-        "usdPrice": 176.784720648,
-        "usdAmount": 2675.600490229122,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-        "name": "Rato the Rat",
-        "symbol": "RATO",
-        "logo": "https://logo.moralis.io/solana-mainnet_2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump_abbc8dad69410a11a386310ed5133dcc.webp",
-        "amount": "5920710.933946000",
-        "usdPrice": 0.000482502,
-        "usdAmount": 2856.754867050813,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000027293195827750326",
-      "totalValueUsd": 2856.756867099
-    },
-    {
       "transactionHash": "4SVA6zoU7vf3A9djmi7Gg2u1eg5uqLF39iR7wEAaqxL73GunqtnCiw4WEt72jFuoxjA2CfG7kH1Fe6UDpYPkSt6i",
       "transactionType": "buy",
       "transactionIndex": 261,
@@ -191,44 +153,6 @@
       "totalValueUsd": 17.619518604
     },
     {
-      "transactionHash": "2C7i6saC9bazEDmu7dGoTXf5uts3ug1nNbtRR7nxEX1yPRZuaB3DPPNt74wUUhmZDxvY4Uc2zCQ5RWMFkSJHauvo",
-      "transactionType": "sell",
-      "transactionIndex": 63,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-11T04:42:00.000Z",
-      "blockNumber": 339234235,
-      "walletAddress": "8GJ4usVvo2yAdPg9fqByokq768Ar4XykQXwZne5eePMB",
-      "pairAddress": "9pFULAVcS2n5YRAkHyEzpYv3RQ272wiXuLrh163qvs4m",
-      "pairLabel": "RATO/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.037142679",
-        "usdPrice": 176.707742696,
-        "usdAmount": 6.563398963772122,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-        "name": "Rato the Rat",
-        "symbol": "RATO",
-        "logo": "https://logo.moralis.io/solana-mainnet_2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump_abbc8dad69410a11a386310ed5133dcc.webp",
-        "amount": "13660.468708000",
-        "usdPrice": 0.000481743,
-        "usdAmount": 6.580835176798044,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000027262133093328506",
-      "totalValueUsd": 6.580835585
-    },
-    {
       "transactionHash": "f9efXENXSL481VHkgChXWo9ewJvF5m5Unsj9JXCBGoYw9PtzQ9hRTFTY6KU4asmasRBZB9Hq2wCG4YgPJLJi3YT",
       "transactionType": "buy",
       "transactionIndex": 29,
@@ -305,44 +229,6 @@
       "totalValueUsd": 7.049505603
     },
     {
-      "transactionHash": "4C27YD3SWvhMSsUf9UsTdxjhSMcoycCZYqi9J3SoePd79ABRSE6ymDHVpQKj4KVuezAVhsykR1K9p5zP1o5KmfCk",
-      "transactionType": "sell",
-      "transactionIndex": 214,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-11T04:42:00.000Z",
-      "blockNumber": 339234234,
-      "walletAddress": "9LmRp4ZQ983XkSLpWyAX9yBfKMvaGFnVBcSTyedTRZaK",
-      "pairAddress": "9pFULAVcS2n5YRAkHyEzpYv3RQ272wiXuLrh163qvs4m",
-      "pairLabel": "RATO/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.132227096",
-        "usdPrice": 176.707742696,
-        "usdAmount": 23.365551657407288,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-        "name": "Rato the Rat",
-        "symbol": "RATO",
-        "logo": "https://logo.moralis.io/solana-mainnet_2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump_abbc8dad69410a11a386310ed5133dcc.webp",
-        "amount": "48651.731859000",
-        "usdPrice": 0.000481722,
-        "usdAmount": 23.436609574581198,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002726094469039383",
-      "totalValueUsd": 23.436623187
-    },
-    {
       "transactionHash": "2u5nQC68XdoUB9p9zMzie2Jgd6ByvjN916CFZ7DHuopE8Bo1J2JdMskrH2CRhrKbkvh4htnbpfjWeA7pyZH55SGx",
       "transactionType": "buy",
       "transactionIndex": 193,
@@ -417,44 +303,6 @@
       },
       "baseQuotePrice": "0.000002725398404463358",
       "totalValueUsd": 0.001762659
-    },
-    {
-      "transactionHash": "3eoTAJpRVATPdcLzssBvPK9ZUBKU3uMxHNVfZzLzcrXWuU4iyw32u2GFAhKSd7Qby7rtCDHWcXUDsQDdEkWpx62o",
-      "transactionType": "sell",
-      "transactionIndex": 141,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-11T04:42:00.000Z",
-      "blockNumber": 339234234,
-      "walletAddress": "Ajsu3tFVKJvuCezJtmv8PoETN27ch2MQz2rW5oz3tbWn",
-      "pairAddress": "9pFULAVcS2n5YRAkHyEzpYv3RQ272wiXuLrh163qvs4m",
-      "pairLabel": "RATO/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.036918775",
-        "usdPrice": 176.707742696,
-        "usdAmount": 6.523833393351517,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-        "name": "Rato the Rat",
-        "symbol": "RATO",
-        "logo": "https://logo.moralis.io/solana-mainnet_2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump_abbc8dad69410a11a386310ed5133dcc.webp",
-        "amount": "13578.111035000",
-        "usdPrice": 0.000481742,
-        "usdAmount": 6.5411463662229705,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002726207650271257",
-      "totalValueUsd": 6.541158936
     },
     {
       "transactionHash": "NZEnDj7p6C5FEsV7wmRnae5QwpWBm7WFSHsKCaVeSYQVEtV1frHiKtp2Xj6C7gTFEcfR2vdMJ5GfrqvDF6ARK3T",
@@ -607,44 +455,6 @@
       },
       "baseQuotePrice": "0.0000027021340022516656",
       "totalValueUsd": 140.433851435
-    },
-    {
-      "transactionHash": "4zQZngD3Mi2XtfAw4GeazoPRrsZB6cq8JgsXHGrc7LXJtaw23riWqvcfzQdky7LJvXjfhSYUzKtKeryt3mDNrRKN",
-      "transactionType": "sell",
-      "transactionIndex": 24,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-11T04:42:00.000Z",
-      "blockNumber": 339234234,
-      "walletAddress": "HdPoCvXscMsR2FHG17SiRgKUtRXWZw8TehpN6SDbbi75",
-      "pairAddress": "9pFULAVcS2n5YRAkHyEzpYv3RQ272wiXuLrh163qvs4m",
-      "pairLabel": "RATO/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.559109775",
-        "usdPrice": 176.707742696,
-        "usdAmount": 98.79902625951846,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-        "name": "Rato the Rat",
-        "symbol": "RATO",
-        "logo": "https://logo.moralis.io/solana-mainnet_2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump_abbc8dad69410a11a386310ed5133dcc.webp",
-        "amount": "206964.433989000",
-        "usdPrice": 0.000479653,
-        "usdAmount": 99.27111165612583,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002714385870602022",
-      "totalValueUsd": 99.271206219
     },
     {
       "transactionHash": "kdGui8SDUW6zizuFaUVhNH2n4BM4MATSEqyEJcKRnwtVij24AhJ4um7LgG6tsGWt5yyUEzXtGgs1iuDXqtyTig5",
@@ -1063,44 +873,6 @@
       },
       "baseQuotePrice": "0.000002657925413081697",
       "totalValueUsd": 105.407991981
-    },
-    {
-      "transactionHash": "5CdqV3pbHWYZdLzmMABSZTFwnuxj46w2g2Us7D3VACCaZb7a5z17Cj4ANCryU5PgRqGRxXDfgFenfsNP7dgpzKQD",
-      "transactionType": "sell",
-      "transactionIndex": 118,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-11T04:41:59.000Z",
-      "blockNumber": 339234233,
-      "walletAddress": "54ZAusYuP1RPpcTSG3ULbERKTQCiPxGwTSkcSrX41nXL",
-      "pairAddress": "9pFULAVcS2n5YRAkHyEzpYv3RQ272wiXuLrh163qvs4m",
-      "pairLabel": "RATO/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "5.979869291",
-        "usdPrice": 176.707742696,
-        "usdAmount": 1056.6892040297398,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump",
-        "name": "Rato the Rat",
-        "symbol": "RATO",
-        "logo": "https://logo.moralis.io/solana-mainnet_2F8Pb5MzMQZuMzrN5wAefYv8cTUnkR6KfoxcKSzspump_abbc8dad69410a11a386310ed5133dcc.webp",
-        "amount": "2201739.256625000",
-        "usdPrice": 0.000492901,
-        "usdAmount": 1085.2394813297192,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002789357118595333",
-      "totalValueUsd": 1085.239608689
     },
     {
       "transactionHash": "47pmSPkvJbJg3kyFQMq7gNgjzw5zUaqtGUEp1wH8y3hayvgjzCC3MRQB4eetJQQK3s7RgaYwRGuF15MyNAY3PuA3",

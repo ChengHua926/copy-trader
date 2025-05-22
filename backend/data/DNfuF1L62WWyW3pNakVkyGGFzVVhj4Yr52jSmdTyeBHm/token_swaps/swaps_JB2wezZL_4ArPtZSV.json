@@ -1293,44 +1293,6 @@
       "totalValueUsd": 35.987880166
     },
     {
-      "transactionHash": "33PTdyJccKnr6DDke3JiLuFA2EAuWTEUmkmGNjXPEBst9DQqngTAmnFAbiw42zY6XDUo38AZkRxSsS5YPLV3T7Ha",
-      "transactionType": "sell",
-      "transactionIndex": 226,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-14T10:47:42.000Z",
-      "blockNumber": 339944753,
-      "walletAddress": "E5WoafTioShHbKVGmdmWBPdr5HMMAGn9WBU6Hu8rkMVX",
-      "pairAddress": "FYAnFcdjkcfAkbtZqixnTqNVLoDjJft82L5FFgPaSWe3",
-      "pairLabel": "LABUBU/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.344945284",
-        "usdPrice": 179.939400832,
-        "usdAmount": 62.06924772278408,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-        "name": "LABUBU",
-        "symbol": "LABUBU",
-        "logo": "https://logo.moralis.io/solana-mainnet_JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump_853bce421a3b2dfc.webp",
-        "amount": "10694.808602000",
-        "usdPrice": 0.00580368,
-        "usdAmount": 62.06924678725536,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.00003225352520440252",
-      "totalValueUsd": 62.069247722
-    },
-    {
       "transactionHash": "4LKYyMCQ2Vm4jJitSqmP8J57Rvqy76T4E3nXeWrtyfEzFjQEuH6Qogz2HbYeFzbPWwCSAzzJ9VfgrhQok9cLaevY",
       "transactionType": "buy",
       "transactionIndex": 209,
@@ -2507,44 +2469,6 @@
       },
       "baseQuotePrice": "0.00003226336184936086",
       "totalValueUsd": 62.978790291
-    },
-    {
-      "transactionHash": "aBpUdBs1HeaJVu7c4K2EJsH4gmiiv2XJ3FiWF3j44YrVFYfJDkKKUHieGFwyJvGW7zS39ez96jk3tNFuiQxNCmt",
-      "transactionType": "sell",
-      "transactionIndex": 119,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-14T10:47:42.000Z",
-      "blockNumber": 339944753,
-      "walletAddress": "A5kuBWqXmVCFFL2Der9SpLX9j2pMNNW4pqvkbXABcejG",
-      "pairAddress": "FYAnFcdjkcfAkbtZqixnTqNVLoDjJft82L5FFgPaSWe3",
-      "pairLabel": "LABUBU/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.723730525",
-        "usdPrice": 179.939400832,
-        "usdAmount": 130.2276370323288,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-        "name": "LABUBU",
-        "symbol": "LABUBU",
-        "logo": "https://logo.moralis.io/solana-mainnet_JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump_853bce421a3b2dfc.webp",
-        "amount": "22540.065572000",
-        "usdPrice": 0.005777606,
-        "usdAmount": 130.22761808918062,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.00003210862086505584",
-      "totalValueUsd": 130.227637032
     },
     {
       "transactionHash": "c8H3W1HPDFtE6WcGDDsUFLvedSZyza2PPif9fnV9uK8HeP9QayNkmTxADnEhXgFdLZ3L31cMrnhcNFiv9oGpo9v",
@@ -5473,44 +5397,6 @@
       "totalValueUsd": 10.794319499
     },
     {
-      "transactionHash": "2dmznjpBpLdQ5z33qMEpn5Ymj9xsGgtko4Jo8okA3ihAuZuna2YV29AeA4ArC9xVfUdrwWGyvwhxrRSHae7Eh7xe",
-      "transactionType": "sell",
-      "transactionIndex": 105,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-14T10:47:42.000Z",
-      "blockNumber": 339944752,
-      "walletAddress": "GEMBsPYSqxmTZuRVooCs8EqQZUVbjzZXoDJrxzbhNeX5",
-      "pairAddress": "FYAnFcdjkcfAkbtZqixnTqNVLoDjJft82L5FFgPaSWe3",
-      "pairLabel": "LABUBU/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.154918623",
-        "usdPrice": 179.905325,
-        "usdAmount": 27.870685219367477,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-        "name": "LABUBU",
-        "symbol": "LABUBU",
-        "logo": "https://logo.moralis.io/solana-mainnet_JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump_853bce421a3b2dfc.webp",
-        "amount": "5135.644338000",
-        "usdPrice": 0.005426911,
-        "usdAmount": 27.87068474997992,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.00003016537170314442",
-      "totalValueUsd": 27.870685219
-    },
-    {
       "transactionHash": "3roihtscW1akcTQFVnqeBV6RzeNtZtgD8enurMxmmz1MrqGEDjsBqNJdu8VYgF9tbRz9XYzgKGeTz755bEmr1WUE",
       "transactionType": "buy",
       "transactionIndex": 80,
@@ -6345,44 +6231,6 @@
       },
       "baseQuotePrice": "0.000029923463364365772",
       "totalValueUsd": 539.818295873
-    },
-    {
-      "transactionHash": "Bzo8QPq3CjysoDt2sFhzmHh4BdCe2Ko282DQL5iMfC1bckDsE4MjNxj9YvU3rRZgehix2GfdycMV4tF3u2qJGf9",
-      "transactionType": "sell",
-      "transactionIndex": 213,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-14T10:47:41.000Z",
-      "blockNumber": 339944751,
-      "walletAddress": "2QfBNK2WDwSLoUQRb1zAnp3KM12N9hQ8q6ApwUMnWW2T",
-      "pairAddress": "FYAnFcdjkcfAkbtZqixnTqNVLoDjJft82L5FFgPaSWe3",
-      "pairLabel": "LABUBU/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.006924098",
-        "usdPrice": 179.939431958,
-        "usdAmount": 1.2459182609415238,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump",
-        "name": "LABUBU",
-        "symbol": "LABUBU",
-        "logo": "https://logo.moralis.io/solana-mainnet_JB2wezZLdzWfnaCfHxLg193RS3Rh51ThiXxEDWQDpump_853bce421a3b2dfc.webp",
-        "amount": "232.935669000",
-        "usdPrice": 0.005348765,
-        "usdAmount": 1.2459181535987849,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.000029725363372540073",
-      "totalValueUsd": 1.24591826
     },
     {
       "transactionHash": "4hQ2wLmJyjK9gJ7x7HZm9E3SqbEcEfwEC9nURtGXafUcpi1yWHL6YJSYvVzrEFTwzx5SFBuJwKey85P2rEq6EpFZ",

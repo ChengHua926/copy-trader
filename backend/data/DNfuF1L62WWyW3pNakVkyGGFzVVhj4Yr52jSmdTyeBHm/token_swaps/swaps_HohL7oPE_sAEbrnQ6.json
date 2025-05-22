@@ -1,44 +1,6 @@
 {
   "result": [
     {
-      "transactionHash": "3w4NaJVfUqBe5MoLXUXuBvEC1Rj1KZhNn2FhpihVdmpDXFp8Rmzxmjw5jtnR5vwxDm3rThx4TXUPpFjmRpwoakih",
-      "transactionType": "sell",
-      "transactionIndex": 529,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-13T10:34:25.000Z",
-      "blockNumber": 339725560,
-      "walletAddress": "E2yowK9jjZPP4HGkh7xUjEk6fSM2JVuX1zxXyrC1Yhoo",
-      "pairAddress": "9snfiX6tefUTW5JS6PF1BdW58gRKudDe3FTBCFZqTwHV",
-      "pairLabel": "MYKU/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.017943810",
-        "usdPrice": 173.722418857,
-        "usdAmount": 3.1172420767104256,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-        "name": "Myku",
-        "symbol": "MYKU",
-        "logo": "https://logo.moralis.io/solana-mainnet_HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK_22a95d860e062d7f41447ea6ec797a0c.webp",
-        "amount": "2021.265572228",
-        "usdPrice": 0.001542222,
-        "usdAmount": 3.117240233332611,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000008877507060671791",
-      "totalValueUsd": 3.117242076
-    },
-    {
       "transactionHash": "4HPLUGXFN9FVNYBJkfawKUp1C6Fi1WMtzfEMuBR5wVxW8MWZycbrcE8ciU9zknQovUbEjAp5oNGuZ2tvRqLgdWcP",
       "transactionType": "buy",
       "transactionIndex": 328,
@@ -685,44 +647,6 @@
       "totalValueUsd": 51.908258754
     },
     {
-      "transactionHash": "2q3LUuqcwjCASCqHQpcyW4DN7Uk4YPGoJDAKQHh1MDsiMAPQSdsPrmzjFac84FJUDWUbk9xVvNM57ko1uGM89m52",
-      "transactionType": "sell",
-      "transactionIndex": 213,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-13T10:34:25.000Z",
-      "blockNumber": 339725559,
-      "walletAddress": "3XwwJf9UiuFVnmVKrRASxK4yLfHWYjiYZbYpoTWhFjwD",
-      "pairAddress": "9snfiX6tefUTW5JS6PF1BdW58gRKudDe3FTBCFZqTwHV",
-      "pairLabel": "MYKU/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.658331862",
-        "usdPrice": 173.722418857,
-        "usdAmount": 114.36700347727273,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-        "name": "Myku",
-        "symbol": "MYKU",
-        "logo": "https://logo.moralis.io/solana-mainnet_HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK_22a95d860e062d7f41447ea6ec797a0c.webp",
-        "amount": "74947.868607300",
-        "usdPrice": 0.001525954,
-        "usdAmount": 114.36699989278385,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000008783863418664994",
-      "totalValueUsd": 114.367003477
-    },
-    {
       "transactionHash": "3sAH9p2vuFREzvPwLFoJeWP62Ur6vvWEXJSYgVTdoRbYwWWHt8CBP9STTcNUmGzgtqZ56gG1SRuCMb5jyyRRZu6S",
       "transactionType": "buy",
       "transactionIndex": 204,
@@ -1177,44 +1101,6 @@
       },
       "baseQuotePrice": "0.000008838621942459882",
       "totalValueUsd": 43.257029261
-    },
-    {
-      "transactionHash": "nEt2YgkERWx1GFeGyZzjwKvkvxo6CMc8xR8m2zRgrvhbEV3xgx7rjS62PQ4mM93aenhJw5ir9iRfb5T4sJ51Fvs",
-      "transactionType": "sell",
-      "transactionIndex": 428,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-13T10:34:24.000Z",
-      "blockNumber": 339725557,
-      "walletAddress": "BvJq3z3mKqqqmhiB39a9PaaUhxSP6AES4kVzL9FdQmyK",
-      "pairAddress": "9snfiX6tefUTW5JS6PF1BdW58gRKudDe3FTBCFZqTwHV",
-      "pairLabel": "MYKU/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.036553539",
-        "usdPrice": 173.723009084,
-        "usdAmount": 6.350190787749349,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-        "name": "Myku",
-        "symbol": "MYKU",
-        "logo": "https://logo.moralis.io/solana-mainnet_HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK_22a95d860e062d7f41447ea6ec797a0c.webp",
-        "amount": "4273.148025292",
-        "usdPrice": 0.001486068,
-        "usdAmount": 6.350188539649632,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.00000855423819697622",
-      "totalValueUsd": 6.350190787
     },
     {
       "transactionHash": "n2Zny18EQRwjnvuHNwtP1JBQmTLFqbrvTsqRfwkjUD1Nk2YAfCcM7KinFJWaqeXNTsaYTTdw8Mu5taoe7H1cxX1",
@@ -2243,44 +2129,6 @@
       "totalValueUsd": 17.302811704
     },
     {
-      "transactionHash": "3PJ5uPySd8EeuvFcLccLnqJ8SjeuvgR8wM1x6Y7Gp4zX3PWR8DtjMUaiJPCViY52sQGyJtB17B9x5JMbrRKpi1gZ",
-      "transactionType": "sell",
-      "transactionIndex": 137,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-13T10:34:23.000Z",
-      "blockNumber": 339725555,
-      "walletAddress": "7dGrdJRYtsNR8UYxZ3TnifXGjGc9eRYLq9sELwYpuuUu",
-      "pairAddress": "9snfiX6tefUTW5JS6PF1BdW58gRKudDe3FTBCFZqTwHV",
-      "pairLabel": "MYKU/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.025513433",
-        "usdPrice": 173.723009084,
-        "usdAmount": 4.432270352823026,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-        "name": "Myku",
-        "symbol": "MYKU",
-        "logo": "https://logo.moralis.io/solana-mainnet_HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK_22a95d860e062d7f41447ea6ec797a0c.webp",
-        "amount": "3055.310188856",
-        "usdPrice": 0.001450677,
-        "usdAmount": 4.432268218839056,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000008350517341652519",
-      "totalValueUsd": 4.432270352
-    },
-    {
       "transactionHash": "28YHtRemGKdDqKPb1mD6iCXKtok53H68v2tu7TcZLGQfqBHsjSoJeTB7P2DnrTjmE5m4jb1hUJrKiyVi6tokYjRZ",
       "transactionType": "buy",
       "transactionIndex": 97,
@@ -3001,44 +2849,6 @@
       },
       "baseQuotePrice": "0.000007845176740164506",
       "totalValueUsd": 6.851914892
-    },
-    {
-      "transactionHash": "22jchTs6X35rZh2yitWDw1foiizaw8Dr76nPnj3rSW8e5im5vCR9SXaYWSzRz88u7W1pURbbKdhFUshfwwQex7Be",
-      "transactionType": "sell",
-      "transactionIndex": 295,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-13T10:34:23.000Z",
-      "blockNumber": 339725554,
-      "walletAddress": "bobCPc5nqVoX7r8gKzCMPLrKjFidjnSCrAdcYGCH2Ye",
-      "pairAddress": "9snfiX6tefUTW5JS6PF1BdW58gRKudDe3FTBCFZqTwHV",
-      "pairLabel": "MYKU/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.020567993",
-        "usdPrice": 173.723046037,
-        "usdAmount": 3.5731343948276932,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK",
-        "name": "Myku",
-        "symbol": "MYKU",
-        "logo": "https://logo.moralis.io/solana-mainnet_HohL7oPEpzekWsWiDSa1ewohT92QZyumWnUqiUQKq6SK_22a95d860e062d7f41447ea6ec797a0c.webp",
-        "amount": "2708.120637602",
-        "usdPrice": 0.001319414,
-        "usdAmount": 3.5731322829410055,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000007594927846930498",
-      "totalValueUsd": 3.573134394
     },
     {
       "transactionHash": "sAEbrnQ6hAFzuwYpZYZbqYKQ4AUsPUweX2ak3nfjUmVMAcBpRMx2hzx8ssHhtsDPcV7A9hQWqFTR8Mg8GVTTuZE",

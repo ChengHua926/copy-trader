@@ -191,44 +191,6 @@
       "totalValueUsd": 1.680969329
     },
     {
-      "transactionHash": "5kRAkRu9LY9dALPrmuqg2NyjkysFw178Uyzpoo1v2RNaCpPSNBLNzzs1AaXyVtbcCH82rQRQipeV8cFMhGAJxKo5",
-      "transactionType": "sell",
-      "transactionIndex": 146,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-21T09:36:45.000Z",
-      "blockNumber": 341463186,
-      "walletAddress": "6o8kgaBi2rGRGx8oMb4NZz1uqs3QAXACkPf9QX3HKFBE",
-      "pairAddress": "C4svdsYUBd9QGMr8fErvMpQJJcimUXSCi3iQ9x4fiPbX",
-      "pairLabel": "BON/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "3.544184474",
-        "usdPrice": 168.096932958,
-        "usdAmount": 595.7665399167626,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump",
-        "name": "Built on NOTHING",
-        "symbol": "BON",
-        "logo": "https://logo.moralis.io/solana-mainnet_2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump_c2eb0864b44ee183.webp",
-        "amount": "175120.376586000",
-        "usdPrice": 0.00340204,
-        "usdAmount": 595.7665259606354,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.00002023856081211202",
-      "totalValueUsd": 595.766539916
-    },
-    {
       "transactionHash": "2wdQp5bRBU6duCRyyaF8qumXGmoq6xb2AaQ6T8URf64gW9zYZSdxrUETfMZVM8efpZaA2DDhnwh7Er2GUfHjB4VT",
       "transactionType": "buy",
       "transactionIndex": 137,
@@ -987,44 +949,6 @@
       },
       "baseQuotePrice": "0.000020277179744288497",
       "totalValueUsd": 16.816628559
-    },
-    {
-      "transactionHash": "24m4DVZzMCornouWpdXetszF3VbouVk2W7tqHUXznxg56XXJAaJCaxMRR6wsVyyCqhYQgbJ85bdkLHngBiLWNHCM",
-      "transactionType": "sell",
-      "transactionIndex": 449,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-21T09:36:44.000Z",
-      "blockNumber": 341463184,
-      "walletAddress": "8QKeertKJ3PmVPRA6iFx87LMa5MnPZJThasJF4FyPKY1",
-      "pairAddress": "C4svdsYUBd9QGMr8fErvMpQJJcimUXSCi3iQ9x4fiPbX",
-      "pairLabel": "BON/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "123.240087206",
-        "usdPrice": 168.166285598,
-        "usdAmount": 20724.82770220662,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump",
-        "name": "Built on NOTHING",
-        "symbol": "BON",
-        "logo": "https://logo.moralis.io/solana-mainnet_2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump_c2eb0864b44ee183.webp",
-        "amount": "5109371.410884000",
-        "usdPrice": 0.004056238,
-        "usdAmount": 20724.8264729413,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.000024120399553192255",
-      "totalValueUsd": 20724.827702206
     },
     {
       "transactionHash": "DugyXQgb53u7pVLLgKsVEq2PWMPNE92W1pxPhaJSvbugrPEdSSgX6ZNQ5GWp4LbqcpTbcwM4SYNEAfPsrzMUSPu",
@@ -4369,44 +4293,6 @@
       },
       "baseQuotePrice": "0.000019136530784752066",
       "totalValueUsd": 8.404545829
-    },
-    {
-      "transactionHash": "54sQeZyyu69jJWCGjK1EeTEsDfJ1ERqA7Qi8xeSir7Tx94NwUCNEChQymXQ22Ac7nHgspsbg1MgZoAVtX6wHL2z3",
-      "transactionType": "sell",
-      "transactionIndex": 226,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-21T09:36:43.000Z",
-      "blockNumber": 341463181,
-      "walletAddress": "FeYWb8dPvezVTMMRi5FMNEVVP85B4ooJnxMnnmVDHkni",
-      "pairAddress": "C4svdsYUBd9QGMr8fErvMpQJJcimUXSCi3iQ9x4fiPbX",
-      "pairLabel": "BON/SOL",
-      "exchangeAddress": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
-      "exchangeName": "Raydium AMM v4",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/raydium.png",
-      "baseToken": "2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.411817866",
-        "usdPrice": 168.090916592,
-        "usdAmount": 69.22284256490144,
-        "tokenType": "token0"
-      },
-      "sold": {
-        "address": "2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump",
-        "name": "Built on NOTHING",
-        "symbol": "BON",
-        "logo": "https://logo.moralis.io/solana-mainnet_2g1Dh2j9AsdpnR5Js24cdtuUEE3KQD1YpHG8NgQ2pump_c2eb0864b44ee183.webp",
-        "amount": "21615.190579000",
-        "usdPrice": 0.003202509,
-        "usdAmount": 69.2228423659627,
-        "tokenType": "token1"
-      },
-      "baseQuotePrice": "0.00001905224306541986",
-      "totalValueUsd": 69.222842564
     },
     {
       "transactionHash": "5sokpSPWvKJ35nh5EYeFY2TpN51EkkPaybGxCev6oQHk63uk4ZYAHqJA8LzCGZuUGmaqTkiXxXqxRBwxt3N1KLns",

@@ -533,44 +533,6 @@
       "totalValueUsd": 24.643637062
     },
     {
-      "transactionHash": "5kHzNS2a8faVMYh4nPbaekMdYB9GzuRxKqHYTLJeggruEbbTmSq4CKSzdc3Q1BCvjQN1VsFiaab3JcqAXU7myae2",
-      "transactionType": "sell",
-      "transactionIndex": 545,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-20T14:13:18.000Z",
-      "blockNumber": 341286429,
-      "walletAddress": "3XwwJf9UiuFVnmVKrRASxK4yLfHWYjiYZbYpoTWhFjwD",
-      "pairAddress": "DWHkvg3ggnSXWCHHcGNhQ8gib8UaQMDmyMovGLSBsXTz",
-      "pairLabel": "RIPVC/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "EeguLg7Zh6F86ZSJtcsDgsxUsA3t5Gci5Kr85AvkxA4B",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "1.077133691",
-        "usdPrice": 164.863478077,
-        "usdAmount": 177.5800066521766,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "EeguLg7Zh6F86ZSJtcsDgsxUsA3t5Gci5Kr85AvkxA4B",
-        "name": "RIP VC",
-        "symbol": "RIPVC",
-        "logo": "https://logo.moralis.io/solana-mainnet_EeguLg7Zh6F86ZSJtcsDgsxUsA3t5Gci5Kr85AvkxA4B_7f7c5e5572795c24ea5c1087bd964024.webp",
-        "amount": "79775.361986106",
-        "usdPrice": 0.002226,
-        "usdAmount": 177.57995578107196,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000013502080788082974",
-      "totalValueUsd": 177.580006652
-    },
-    {
       "transactionHash": "4azSxU17d96MGWyaTKEcJDjbjD9svDC8Vg8RsXpvuu1CUcFJCpCBmdbXXLWfYVdzVVJ7kVKUxoBVxKmw8GevqpFG",
       "transactionType": "buy",
       "transactionIndex": 543,

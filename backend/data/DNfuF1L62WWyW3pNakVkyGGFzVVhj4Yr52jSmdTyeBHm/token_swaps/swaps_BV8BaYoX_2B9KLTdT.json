@@ -1,44 +1,6 @@
 {
   "result": [
     {
-      "transactionHash": "4KijkKQxX9Z2TszysP6qoRZnvKBhk4X7tYKwgw6HoxQyFaNuGqY2GY6fPm3S1Skr28JBswWw6UoADEP19k5cAg45",
-      "transactionType": "sell",
-      "transactionIndex": 510,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-10T23:51:37.000Z",
-      "blockNumber": 339190087,
-      "walletAddress": "8XeCxEn4BZkYLJgAdH1TcntyPQ4NbuGDuHRQrqnFqmKZ",
-      "pairAddress": "BH9z5xBLDJqtiYnoGA6rbMRtw1W34WH4s8ozNX9xiL6L",
-      "pairLabel": "UncleSam/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.355088055",
-        "usdPrice": 177.317928418,
-        "usdAmount": 62.963478318576854,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su",
-        "name": "The symbol of America",
-        "symbol": "UncleSam",
-        "logo": "https://logo.moralis.io/solana-mainnet_BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su_90e069ccd1c89b2c214b2884cd075593.webp",
-        "amount": "121911.306038000",
-        "usdPrice": 0.000518293,
-        "usdAmount": 63.185776540353125,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002922958804132897",
-      "totalValueUsd": 63.185786374
-    },
-    {
       "transactionHash": "5d3CymYQN69Rez8DjMTSgT5N5fhgj2NY2xPcrTUosoKGjudUkZspNUwfLfUXsNKfgrGDLShDJZgUJSbX7Pjhzony",
       "transactionType": "buy",
       "transactionIndex": 494,
@@ -75,44 +37,6 @@
       },
       "baseQuotePrice": "0.000002898150258041438",
       "totalValueUsd": 261.544669893
-    },
-    {
-      "transactionHash": "2uq6bworXVJRuzg7wymHPt7hjeDs6AHJBVo9czzCsHRYHCxKXhArjxS58352DZ7tLKae7LzaAkag3mhfpcTNfatS",
-      "transactionType": "sell",
-      "transactionIndex": 130,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-10T23:51:37.000Z",
-      "blockNumber": 339190087,
-      "walletAddress": "EEyvb81imojsY7oxVa736pj43XqU7fXd2yGrAeFZpLk3",
-      "pairAddress": "BH9z5xBLDJqtiYnoGA6rbMRtw1W34WH4s8ozNX9xiL6L",
-      "pairLabel": "UncleSam/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.002033197",
-        "usdPrice": 177.317928418,
-        "usdAmount": 0.36052228010569237,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su",
-        "name": "The symbol of America",
-        "symbol": "UncleSam",
-        "logo": "https://logo.moralis.io/solana-mainnet_BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su_90e069ccd1c89b2c214b2884cd075593.webp",
-        "amount": "703.303906000",
-        "usdPrice": 0.0005139,
-        "usdAmount": 0.3614278772934,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000028981840955673643",
-      "totalValueUsd": 0.361428295
     },
     {
       "transactionHash": "59JUh6WKjggucRHgsQ6e6ogZVcr67PhDHsxPVEsy99MKHHoCCdZfTHxrSSA5jiAFo7SiyrH1LMdC837uRjgXgNKp",
@@ -721,44 +645,6 @@
       },
       "baseQuotePrice": "0.0000028050068283422937",
       "totalValueUsd": 3.476281591
-    },
-    {
-      "transactionHash": "aZ3os7NNjHkbUU6K4mUueA2FgoSTC3rCbcquwe2gLRQ9YYFumG5E2Hw9u5SuzC8zvLxsVaA1415qfwLWYpUbuTy",
-      "transactionType": "sell",
-      "transactionIndex": 583,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-10T23:51:37.000Z",
-      "blockNumber": 339190084,
-      "walletAddress": "FAn9vm4CMC8HqhgyzyiUxxMewn3VSEoxpvg3wXYH6f14",
-      "pairAddress": "BH9z5xBLDJqtiYnoGA6rbMRtw1W34WH4s8ozNX9xiL6L",
-      "pairLabel": "UncleSam/SOL",
-      "exchangeAddress": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
-      "exchangeName": "PumpSwap",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/pumpfun.png",
-      "baseToken": "BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.119406178",
-        "usdPrice": 177.317928418,
-        "usdAmount": 21.172856123270968,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su",
-        "name": "The symbol of America",
-        "symbol": "UncleSam",
-        "logo": "https://logo.moralis.io/solana-mainnet_BV8BaYoXwWjHXBRXpCKjvemNUYULPuv77kxJRzrWp3Su_90e069ccd1c89b2c214b2884cd075593.webp",
-        "amount": "42660.703733000",
-        "usdPrice": 0.000497726,
-        "usdAmount": 21.233341426211158,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002806969404846005",
-      "totalValueUsd": 21.233359542
     },
     {
       "transactionHash": "3eYb4BBVNNGAvjdznjQJXSJ3iVUVGxPkX9uLYDf6tYeA1vZ8iHrBr1hhf5bbNUq9d2D79hSuh3nQvouDazW9mDzq",

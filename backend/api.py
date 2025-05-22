@@ -86,7 +86,7 @@ class TokenInfo(BaseModel):
     address: str
     name: str
     symbol: str
-    logo: str
+    logo: Optional[str] = ""
 
 class TransactionInfo(BaseModel):
     slot: int
@@ -915,11 +915,15 @@ async def get_copy_transactions(request: CopyTransactionRequest):
             token_info = None
             if 'bought' in leader_tx and leader_tx['transactionType'] == 'buy':
                 bought = leader_tx['bought']
+                # Make sure logo is never None by defaulting to empty string
+                logo = bought.get('logo', '')
+                if logo is None:
+                    logo = ''
                 token_info = TokenInfo(
                     address=bought.get('address', ''),
                     name=bought.get('name', ''),
                     symbol=bought.get('symbol', ''),
-                    logo=bought.get('logo', '')
+                    logo=logo
                 )
             
             if not token_info:

@@ -77,44 +77,6 @@
       "totalValueUsd": 42.03056419
     },
     {
-      "transactionHash": "2H12ELg75iuXnYipg5jUoXwXV7NSnR4f5tN1N9u5FkDNLVTcxU3sZ3Utsp7mGP96K5M1D8dkVg7Hr8j7yui6MVcQ",
-      "transactionType": "sell",
-      "transactionIndex": 416,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-17T04:21:00.000Z",
-      "blockNumber": 340540669,
-      "walletAddress": "o2qLwSrKRCjik78haxAA4PEecZKgZWdtr2Di7S833mm",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "1.079187068",
-        "usdPrice": 168.797446549,
-        "usdAmount": 182.16402142710203,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "516028.461455611",
-        "usdPrice": 0.000353011,
-        "usdAmount": 182.1637232069067,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000020913290290651694",
-      "totalValueUsd": 182.164021427
-    },
-    {
       "transactionHash": "4wPcFQ59Jxn7HPDcCtG5bAVNGbtSf7VqYM9g4rxyGGxPnBajeEczUcbihrAj8K2obnyV4KP9uBKra6M2AvoSh6mG",
       "transactionType": "buy",
       "transactionIndex": 391,
@@ -647,44 +609,6 @@
       "totalValueUsd": 251.200804595
     },
     {
-      "transactionHash": "3AWBu3QB6bYc8VYr9dqmNkiHwahJGVCwuRT1vtWCZEiH6ermRaNdUKDzQaJ5CRrVWvpkkGC1kKVe9ndpXoEeRYm7",
-      "transactionType": "sell",
-      "transactionIndex": 466,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-17T04:21:00.000Z",
-      "blockNumber": 340540667,
-      "walletAddress": "Boq2a2WacMAA4XyK61qqyBRS4pdGbh8bYaAYBBqunoDv",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "3.050132045",
-        "usdPrice": 168.815022201,
-        "usdAmount": 514.9081088926565,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "1480027.635702145",
-        "usdPrice": 0.000347904,
-        "usdAmount": 514.907534571319,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002060859249751881",
-      "totalValueUsd": 514.908108892
-    },
-    {
       "transactionHash": "2q5vRDhkCNW1uCe7ynhxGGupBJ96kN3VcUUhAC6ThXXRXqmBdrLZHBb3vVXYYzjUfyC7tMg4LQww69j4YYZP1dQY",
       "transactionType": "buy",
       "transactionIndex": 332,
@@ -721,44 +645,6 @@
       },
       "baseQuotePrice": "0.000002144015356459527",
       "totalValueUsd": 1.681397621
-    },
-    {
-      "transactionHash": "4T117p4XbUU9QcES7SEGnUoKHfXAoKR8twHUfwJDqVfzNB3jQUkJdjg8wMTWkTsB8A4usDsFJwkpGWNWbYF3W6Pi",
-      "transactionType": "sell",
-      "transactionIndex": 115,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-17T04:21:00.000Z",
-      "blockNumber": 340540667,
-      "walletAddress": "G7phjwAAFQUb93KXJwCzfiRKwRzRCe6i6AXyiAseCffF",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.001685406",
-        "usdPrice": 168.815022201,
-        "usdAmount": 0.28452185130769864,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "811.989821261",
-        "usdPrice": 0.0003504,
-        "usdAmount": 0.2845212333698544,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000020756446637953546",
-      "totalValueUsd": 0.284521851
     },
     {
       "transactionHash": "4fzC2WS4DeraaAVFXYfFJS9rDMWp124Ka1mwQRtxPT5zjwk5M3dVdqKsPUEuxeojvRscp6jnnf9JqCG4QxHV1XyS",
@@ -1065,44 +951,6 @@
       "totalValueUsd": 9.886618012
     },
     {
-      "transactionHash": "3mAMLp3K1F4LYi98rPkSec5mZAE4gjJzHbyBHw24N9NUWDKEwpM9UVCvf856Ur1i5eMwH8RJzi25keXFcTMhRWQ1",
-      "transactionType": "sell",
-      "transactionIndex": 268,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-17T04:20:59.000Z",
-      "blockNumber": 340540665,
-      "walletAddress": "9orq5gXTUrBQKciV3pSxdpT7cKkGqk61DGPfD1C7f7Wd",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.014926327",
-        "usdPrice": 168.815022201,
-        "usdAmount": 2.519788223884386,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "7253.712122380",
-        "usdPrice": 0.000347379,
-        "usdAmount": 2.519787263360242,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002057749336942256",
-      "totalValueUsd": 2.519788223
-    },
-    {
       "transactionHash": "sCdXkt9YYxXoCtxiCXxyUYyjxxspyeXFoovQsZpL8Wz54j8EECi5A1umRdr7vgHvoNiLJzbkpUnhSMvNqKm5Dvz",
       "transactionType": "buy",
       "transactionIndex": 230,
@@ -1177,44 +1025,6 @@
       },
       "baseQuotePrice": "0.0000021152856857420398",
       "totalValueUsd": 329.553933739
-    },
-    {
-      "transactionHash": "399tcNCdXEqmQbhYHys3WZV9yFTTbQo2SEnXEzyq3QjYwUbQKML6QwJqBZCrvCf7ktRT4oveTzvWR8sQzY9FYxiJ",
-      "transactionType": "sell",
-      "transactionIndex": 202,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-17T04:20:59.000Z",
-      "blockNumber": 340540665,
-      "walletAddress": "7h5qKiceGKG7xSzDEAecHyoruRi7C5k6jJVLXcqnyDP4",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.050010919",
-        "usdPrice": 168.815022201,
-        "usdAmount": 8.442594401277413,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "24529.189890282",
-        "usdPrice": 0.000344185,
-        "usdAmount": 8.44257922238671,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000002038829219772843",
-      "totalValueUsd": 8.442594401
     },
     {
       "transactionHash": "5Ec9WVcqxTGD35Fz5XeCTDsigkENPuSaZaVrva5NQAm3s2YagBAJnj2pMxE18KKwLvZdhZ11SmEQk3vqKvPju5b9",
@@ -1329,44 +1139,6 @@
       },
       "baseQuotePrice": "0.000002099830899989066",
       "totalValueUsd": 25.220964316
-    },
-    {
-      "transactionHash": "Xaj5knUfdfSowifemyxsu6zQfkE4b5PuDD4UbEbCLNDkBYGUBB1AzjspjF7mMcu1CZyjrLsKzUCM3EfTz6uYoEh",
-      "transactionType": "sell",
-      "transactionIndex": 111,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-17T04:20:59.000Z",
-      "blockNumber": 340540665,
-      "walletAddress": "HZETP8REH6GSM58yCUieEYU46wZ4h43SnGCyTu4sWGZu",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.328046602",
-        "usdPrice": 168.815022201,
-        "usdAmount": 55.37919439959261,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "161296.482798000",
-        "usdPrice": 0.000343337,
-        "usdAmount": 55.379050514416924,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000020338059701298677",
-      "totalValueUsd": 55.379194399
     },
     {
       "transactionHash": "ntJsiL3HMq4JvZjWdBaqXfJyPqFLY4X2YzXB2UNW52MvJPMC13L7CJWqemo49CBDipfT36VQeDFXKhCDcBqXn5c",
@@ -2013,44 +1785,6 @@
       },
       "baseQuotePrice": "0.0000020470512368771466",
       "totalValueUsd": 84.069881056
-    },
-    {
-      "transactionHash": "YXtbw7j7mstwpWLrwLb9yhusDttHfbUNPWihyduQJbwqVksDNZ4SmvmCJifLysEyGDsRtVq3GhtmXRzw6XLD6wC",
-      "transactionType": "sell",
-      "transactionIndex": 349,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-17T04:20:58.000Z",
-      "blockNumber": 340540663,
-      "walletAddress": "Boq2a2WacMAA4XyK61qqyBRS4pdGbh8bYaAYBBqunoDv",
-      "pairAddress": "9Wd2xPc6KmF6qmbqbsQpSbhemAmRpVfgtVBFUPeLpYw7",
-      "pairLabel": "AURA/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "5.236243816",
-        "usdPrice": 168.815022201,
-        "usdAmount": 883.9566160478889,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe",
-        "name": "Aurora Ventures",
-        "symbol": "AURA",
-        "logo": "https://logo.moralis.io/solana-mainnet_3YmNY3Giya7AKNNQbqo35HPuqTrrcgT9KADQBM2hDWNe_7431fe9111e43829f11b3ae2ad7e8570.webp",
-        "amount": "2611813.474768491",
-        "usdPrice": 0.000338445,
-        "usdAmount": 883.955211468022,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000020048275063876106",
-      "totalValueUsd": 883.956616047
     },
     {
       "transactionHash": "2mvaRAsYPRUox28xiQT6bmsSzbXW3dWkYy55mZNzFPM1DbwFciteZDnS3zzA8yPtFCSuSZaYb5Psun2X36Yhp3nQ",

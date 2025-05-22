@@ -39,44 +39,6 @@
       "totalValueUsd": 1815.994774604
     },
     {
-      "transactionHash": "26iLyUf6Xi7puHCHXRnGWNHp5vKurtwMgTmnisqPas22CQ8apzLn14hgStLBhRVdaqo3Uka4nzMbA5DwuAY4Rdwq",
-      "transactionType": "sell",
-      "transactionIndex": 300,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-14T01:37:42.000Z",
-      "blockNumber": 339861652,
-      "walletAddress": "122dY33nPAdaa1b642FvRXYNb3dgZJMXtnYfcMBP3Gzq",
-      "pairAddress": "Z3MAm7qEbPqXaMJe6ejeU1FrVdsmE7a4kyUkLyRTMtC",
-      "pairLabel": "SEX/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "5.419857454",
-        "usdPrice": 184.170497607,
-        "usdAmount": 998.177844262188,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-        "name": "SexRobot This is to fund my se",
-        "symbol": "SEX",
-        "logo": "https://logo.moralis.io/solana-mainnet_ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6_cc419336c6c9e37192b54eb8a1ca6752.webp",
-        "amount": "1765133.421122470",
-        "usdPrice": 0.000565497,
-        "usdAmount": 998.1776542444934,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.000003070508074570715",
-      "totalValueUsd": 998.177844262
-    },
-    {
       "transactionHash": "48mDdZRsMnGhWKndNBWqFvqxuGCUTfh59NzYqVVGLRoVMycKKx1UvFiUr9ac3ieHpNRHonmSDVxv9eAAtuBcfYbT",
       "transactionType": "buy",
       "transactionIndex": 292,
@@ -419,44 +381,6 @@
       "totalValueUsd": 1.83380686
     },
     {
-      "transactionHash": "5Zd8Lwr9GEf65yAPHf92g1NSHubbsRrSCr7T4ydNptyszphEzNmhm3KnYz1Up6zXW9CAJ6MzyQpAnGFF4NjL9B1k",
-      "transactionType": "sell",
-      "transactionIndex": 265,
-      "subCategory": "sellAll",
-      "blockTimestamp": "2025-05-14T01:37:42.000Z",
-      "blockNumber": 339861651,
-      "walletAddress": "EHZ66m3qTRJogZCW3JqPDXbT7jAijYXNLhgDb15csvcw",
-      "pairAddress": "Z3MAm7qEbPqXaMJe6ejeU1FrVdsmE7a4kyUkLyRTMtC",
-      "pairLabel": "SEX/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.191106524",
-        "usdPrice": 184.117154626,
-        "usdAmount": 35.18598942934538,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-        "name": "SexRobot This is to fund my se",
-        "symbol": "SEX",
-        "logo": "https://logo.moralis.io/solana-mainnet_ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6_cc419336c6c9e37192b54eb8a1ca6752.webp",
-        "amount": "63768.405834133",
-        "usdPrice": 0.000551777,
-        "usdAmount": 35.18593966594041,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000029968799003049615",
-      "totalValueUsd": 35.185989429
-    },
-    {
       "transactionHash": "5Vx3wadqGd7cCUKTphAjV3Sn61iR2cZ1RmchqWDYYTi4kYjUMBdXTpzRWBYJ6igLvkrayhG82yoiSbTU8dPDjrM8",
       "transactionType": "buy",
       "transactionIndex": 226,
@@ -569,44 +493,6 @@
       },
       "baseQuotePrice": "0.0000030164380995793026",
       "totalValueUsd": 91.690343003
-    },
-    {
-      "transactionHash": "2BVFc8pXaqtGHbXtuRUqgg2y9PKhiw2YiPmBFThH8kkeXFgB4UvsUUUPrhNejrLBqhZJAmto1WbCuvxH3DV3RVjz",
-      "transactionType": "sell",
-      "transactionIndex": 439,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-14T01:37:42.000Z",
-      "blockNumber": 339861650,
-      "walletAddress": "HTk8PqkKM42oDFFJbBYTQRZRfwHLcHesknAnjU1mwzWQ",
-      "pairAddress": "Z3MAm7qEbPqXaMJe6ejeU1FrVdsmE7a4kyUkLyRTMtC",
-      "pairLabel": "SEX/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.892797733",
-        "usdPrice": 184.18362,
-        "usdAmount": 164.43871839173346,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-        "name": "SexRobot This is to fund my se",
-        "symbol": "SEX",
-        "logo": "https://logo.moralis.io/solana-mainnet_ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6_cc419336c6c9e37192b54eb8a1ca6752.webp",
-        "amount": "305398.118967473",
-        "usdPrice": 0.00053844,
-        "usdAmount": 164.43856317684615,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000029233869982574996",
-      "totalValueUsd": 164.438718391
     },
     {
       "transactionHash": "42Yceb2S5Ujpjct3fFBi3KfnoCqDD46EcDYbDdNvGc6onoWsU3jCN2znqgXz9fQUVr319c7V3BWgAGBfhfQLyRXL",
@@ -3495,44 +3381,6 @@
       },
       "baseQuotePrice": "0.0000013575313816516732",
       "totalValueUsd": 3451.049415628
-    },
-    {
-      "transactionHash": "3L3M2BvQK7EvTUTVvh6HvNjmK6xY9XWUPnCJu5TsRGa4eHCa7NJuGE2ZMBjRjn1EApBmgP64XqLoH357cpueBak6",
-      "transactionType": "sell",
-      "transactionIndex": 121,
-      "subCategory": "partialSell",
-      "blockTimestamp": "2025-05-14T01:37:40.000Z",
-      "blockNumber": 339861646,
-      "walletAddress": "ABggcfQqxLcoVSVQGbVHiHdSdhu37FVxDTkkQuJaWcLX",
-      "pairAddress": "Z3MAm7qEbPqXaMJe6ejeU1FrVdsmE7a4kyUkLyRTMtC",
-      "pairLabel": "SEX/SOL",
-      "exchangeAddress": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
-      "exchangeName": "Meteora Dynamic AMM",
-      "exchangeLogo": "https://entities-logos.s3.amazonaws.com/meteora.png",
-      "baseToken": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-      "quoteToken": "So11111111111111111111111111111111111111112",
-      "bought": {
-        "address": "So11111111111111111111111111111111111111112",
-        "name": "Wrapped SOL",
-        "symbol": "SOL",
-        "logo": "https://logo.moralis.io/solana-mainnet_So11111111111111111111111111111111111111112_5ffe40a76ba4f2a8.webp",
-        "amount": "0.501808014",
-        "usdPrice": 184.187270644,
-        "usdAmount": 92.42664848594613,
-        "tokenType": "token1"
-      },
-      "sold": {
-        "address": "ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6",
-        "name": "SexRobot This is to fund my se",
-        "symbol": "SEX",
-        "logo": "https://logo.moralis.io/solana-mainnet_ohMToJcUedpJyCze4ewug51iV3RaTxAgwszMJxUePS6_cc419336c6c9e37192b54eb8a1ca6752.webp",
-        "amount": "408615.522446943",
-        "usdPrice": 0.000226194,
-        "usdAmount": 92.42637948436382,
-        "tokenType": "token0"
-      },
-      "baseQuotePrice": "0.0000012280653229136082",
-      "totalValueUsd": 92.426648485
     },
     {
       "transactionHash": "5TzXCxwvgjM7RFVZWrTyQ9Jd2KxJs9CUabjvtB21hidvkvQLiFnu6Mr3tuqTRqDcdp1WkMGifDceEnWGKPMQbMBt",
