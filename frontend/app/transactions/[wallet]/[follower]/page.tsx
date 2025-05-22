@@ -214,46 +214,6 @@ const TransactionCard = ({ transaction }: { transaction: CopyTransaction }) => {
           <div className={`text-sm ${delayInfo.color} mt-2 text-center font-medium`}>
             {delayInfo.text}
           </div>
-          
-          <div className="mt-4 pt-4 border-t border-[#232336] w-full">
-            <div className="flex items-center justify-center gap-4">
-              <a 
-                href={`https://solscan.io/tx/${transaction.leader_transaction.signature}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                title="View leader transaction on Solscan"
-              >
-                <div className="p-2 rounded-full bg-[#1A1A2E] hover:bg-[#232336] transition-colors inline-flex items-center justify-center text-[#14F195]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </div>
-                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#13131D] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
-                  Leader Transaction
-                </span>
-              </a>
-              
-              <a 
-                href={`https://solscan.io/tx/${transaction.follower_transaction.signature}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                title="View follower transaction on Solscan"
-              >
-                <div className="p-2 rounded-full bg-[#1A1A2E] hover:bg-[#232336] transition-colors inline-flex items-center justify-center text-[#9945FF]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </div>
-                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#13131D] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
-                  Follower Transaction
-                </span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
