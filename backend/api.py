@@ -31,6 +31,14 @@ TRANSACTION_TYPES = ["SWAP", "TRANSFER"]
 TOTAL_TRANSACTIONS_NEEDED = 500
 TRANSACTIONS_PER_PAGE = 100
 
+# Follower scoring constants
+WINDOW = 10  # Maximum delay for speed normalization
+TIER_BOUNDARIES = {
+    'Gold': 0.75,
+    'Silver': 0.5,
+    'Bronze': 0.3
+}
+
 # List of known non-memecoin tokens (SOL and common stablecoins)
 NON_MEMECOINS = [
     'So11111111111111111111111111111111111111112',  # SOL
@@ -50,6 +58,18 @@ class ProgressResponse(BaseModel):
     current_step: str
     next_step: Optional[str] = None
     progress: Dict[str, Any] = {}
+
+class FollowerScore(BaseModel):
+    addr: str
+    hits: int
+    breadth: int
+    avg_delay: float
+    med_delay: float
+    freq_norm: float
+    speed_norm: float
+    breadth_norm: float
+    score: float
+    tier: str
 
 # Step 1: Fetch Transactions
 def ensure_wallet_data_dirs(wallet_address: str) -> Dict[str, str]:
@@ -521,7 +541,176 @@ def analyze_copy_trades(wallet_address: str) -> Dict[str, Any]:
     # Save the table and get statistics
     stats = save_copy_trades_table(df, wallet_address)
     
-    return stats
+    return stats, df
+
+# Step 5: Calculate Follower Scores
+def clean_copy_trades(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Clean the copy trades data by applying filtering rules
+    
+    Rules:
+    1. Drop rows where delay_slots < 0 (frontrunning/MEV)
+    2. Keep rows where 0 <= delay_slots <= WINDOW
+    """
+    if df.empty:
+        return df
+    
+    # Apply filtering rules
+    cleaned_df = df[(df['delay_slots'] >= 0) & (df['delay_slots'] <= WINDOW)]
+    
+    return cleaned_df
+
+def calculate_follower_metrics(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculate metrics for each follower
+    """
+    if df.empty:
+        return pd.DataFrame(columns=[
+            'addr', 'hits', 'breadth', 'avg_delay', 'med_delay'
+        ])
+    
+    # Group by follower address and calculate metrics
+    metrics = df.groupby('follower_addr').agg({
+        'lead_index': 'count',  # hits
+        'token': 'nunique',     # breadth
+        'delay_slots': ['mean', 'median']  # avg_delay and med_delay
+    }).reset_index()
+    
+    # Rename columns for clarity
+    metrics.columns = ['addr', 'hits', 'breadth', 'avg_delay', 'med_delay']
+    
+    # Filter out followers with less than 3 hits
+    metrics = metrics[metrics['hits'] >= 3]
+    
+    return metrics
+
+def normalize_metrics(metrics: pd.DataFrame, total_lead_buys: int) -> pd.DataFrame:
+    """
+    Normalize the metrics according to the specified formulas
+    """
+    if metrics.empty:
+        return metrics
+    
+    # Calculate normalizations
+    metrics['freq_norm'] = metrics['hits'] / total_lead_buys
+    
+    # breadth_norm = breadth / hits
+    metrics['breadth_norm'] = metrics['breadth'] / metrics['hits']
+    
+    # speed_norm: 1.0 if avg_delay ≤ 3, else linear fall-off to 0.0 at WINDOW
+    metrics['speed_norm'] = metrics['avg_delay'].apply(
+        lambda x: 1.0 if x <= 3 else max(0, 1 - (x - 3) / (WINDOW - 3))
+    )
+    
+    return metrics
+
+def calculate_scores(metrics: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculate the final copy score and assign tiers
+    """
+    if metrics.empty:
+        return metrics
+    
+    # Calculate copy score
+    metrics['score'] = (
+        0.6 * metrics['freq_norm'] +
+        0.3 * metrics['speed_norm'] +
+        0.1 * metrics['breadth_norm']
+    )
+    
+    # Assign tiers based on score
+    def assign_tier(score: float) -> str:
+        if score >= TIER_BOUNDARIES['Gold']:
+            return 'Gold'
+        elif score >= TIER_BOUNDARIES['Silver']:
+            return 'Silver'
+        elif score >= TIER_BOUNDARIES['Bronze']:
+            return 'Bronze'
+        return 'Unranked'
+    
+    metrics['tier'] = metrics['score'].apply(assign_tier)
+    
+    return metrics
+
+def save_follower_scores(metrics: pd.DataFrame, wallet_address: str) -> Dict[str, Any]:
+    """
+    Save the follower scores and return the data
+    """
+    if metrics.empty:
+        return {
+            "total_followers": 0,
+            "follower_scores": []
+        }
+    
+    # Create timestamp for file names
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    
+    # Get path to wallet directory
+    dirs = ensure_wallet_data_dirs(wallet_address)
+    wallet_dir = dirs["wallet_dir"]
+    
+    # Round numeric columns for better readability
+    numeric_cols = ['avg_delay', 'med_delay', 'score', 'freq_norm', 'speed_norm', 'breadth_norm']
+    metrics[numeric_cols] = metrics[numeric_cols].round(3)
+    
+    # Save as JSON
+    json_path = os.path.join(wallet_dir, f"follower_scores_{timestamp}.json")
+    metrics.to_json(json_path, orient='records', indent=2)
+    
+    # Save as Parquet
+    parquet_path = os.path.join(wallet_dir, f"follower_scores_{timestamp}.parquet")
+    metrics.to_parquet(parquet_path, index=False)
+    
+    # Create the response data
+    follower_scores = metrics.to_dict('records')
+    
+    # Generate tier distribution stats
+    tier_distribution = metrics['tier'].value_counts().to_dict()
+    
+    return {
+        "total_followers": len(metrics),
+        "tier_distribution": tier_distribution,
+        "follower_scores": follower_scores,
+        "json_path": json_path
+    }
+
+def calculate_follower_scores(wallet_address: str, copy_trades_df: pd.DataFrame) -> Dict[str, Any]:
+    """
+    Calculate and save follower scores based on copy trades data
+    """
+    # Clean the copy trades data
+    cleaned_df = clean_copy_trades(copy_trades_df)
+    
+    # If data is empty after cleaning, return empty results
+    if cleaned_df.empty:
+        return {
+            "total_followers": 0,
+            "follower_scores": []
+        }
+    
+    # Calculate total number of unique lead transactions
+    total_lead_buys = cleaned_df['lead_index'].nunique()
+    
+    # Calculate follower metrics
+    metrics = calculate_follower_metrics(cleaned_df)
+    
+    # If no followers meet criteria, return empty results
+    if metrics.empty:
+        return {
+            "total_followers": 0,
+            "follower_scores": []
+        }
+    
+    # Normalize metrics
+    metrics = normalize_metrics(metrics, total_lead_buys)
+    
+    # Calculate scores and assign tiers
+    metrics = calculate_scores(metrics)
+    
+    # Save results and prepare response
+    results = save_follower_scores(metrics, wallet_address)
+    
+    return results
 
 # Main API endpoint
 @app.post("/process-wallet", response_model=ProgressResponse)
@@ -542,11 +731,14 @@ async def process_wallet(request: WalletRequest):
         swaps_result = fetch_swaps_for_filtered_transactions(wallet_address)
         
         # Step 4: Analyze copy trades
-        analysis_result = analyze_copy_trades(wallet_address)
+        analysis_result, copy_trades_df = analyze_copy_trades(wallet_address)
+        
+        # Step 5: Calculate follower scores
+        scores_result = calculate_follower_scores(wallet_address, copy_trades_df)
         
         return ProgressResponse(
             status="success",
-            message=f"Processed wallet {wallet_address}: Found {filter_result['buy_transactions']} memecoin purchases and {analysis_result['total_copy_trades']} copy trades from {analysis_result['unique_followers']} unique followers",
+            message=f"Processed wallet {wallet_address}: Found {scores_result['total_followers']} copy traders following this wallet",
             data={
                 "wallet_address": wallet_address,
                 "transactions_fetched": fetch_result["transactions_fetched"],
@@ -561,16 +753,18 @@ async def process_wallet(request: WalletRequest):
                     "unique_followers": analysis_result["unique_followers"],
                     "unique_tokens": analysis_result["unique_tokens"],
                     "delay_stats": analysis_result["delay_stats"]
-                }
+                },
+                "follower_scores": scores_result["follower_scores"],
+                "tier_distribution": scores_result.get("tier_distribution", {})
             },
-            current_step="analyze_copy_trades",
-            next_step="calculate_scores",
+            current_step="calculate_scores",
+            next_step=None,
             progress={
                 "fetch_transactions": "completed",
                 "filter_transactions": "completed",
                 "fetch_swaps": "completed",
                 "analyze_copy_trades": "completed",
-                "calculate_scores": "pending"
+                "calculate_scores": "completed"
             }
         )
     except Exception as e:

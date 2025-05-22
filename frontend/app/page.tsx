@@ -2,6 +2,20 @@
 
 import { useState } from "react";
 
+// Interface for follower score
+interface FollowerScore {
+  addr: string;
+  hits: number;
+  breadth: number;
+  avg_delay: number;
+  med_delay: number;
+  freq_norm: number;
+  speed_norm: number;
+  breadth_norm: number;
+  score: number;
+  tier: string;
+}
+
 export default function Home() {
   const [wallet, setWallet] = useState("");
   const [loading, setLoading] = useState(false);
@@ -52,6 +66,22 @@ export default function Home() {
       case "failed": return "bg-red-500";
       default: return "bg-gray-500";
     }
+  };
+
+  // Helper function to get tier color
+  const getTierColor = (tier: string) => {
+    switch (tier) {
+      case "Gold": return "text-yellow-400";
+      case "Silver": return "text-gray-300";
+      case "Bronze": return "text-amber-600";
+      default: return "text-gray-500";
+    }
+  };
+
+  // Helper to truncate wallet addresses
+  const truncateAddress = (address: string) => {
+    if (!address) return "";
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
   return (
@@ -173,7 +203,82 @@ export default function Home() {
                       </div>
                     )}
                     
-                    <div className="border-t border-gray-800 pt-4 mt-2">
+                    {/* Copy Traders Summary */}
+                    {result.data.follower_scores && (
+                      <div className="mt-8">
+                        <h3 className="text-xl font-bold text-white mb-4">Copy Traders</h3>
+                        
+                        {/* Tier distribution */}
+                        {result.data.tier_distribution && (
+                          <div className="grid grid-cols-4 gap-3 mb-6">
+                            <div className="bg-[#222222] p-3 rounded text-center">
+                              <p className="text-gray-500 text-sm">Total</p>
+                              <p className="text-white text-lg font-bold">{result.data.follower_scores.length}</p>
+                            </div>
+                            <div className="bg-[#222222] p-3 rounded text-center">
+                              <p className="text-gray-500 text-sm">Gold</p>
+                              <p className="text-yellow-400 text-lg font-bold">
+                                {result.data.tier_distribution.Gold || 0}
+                              </p>
+                            </div>
+                            <div className="bg-[#222222] p-3 rounded text-center">
+                              <p className="text-gray-500 text-sm">Silver</p>
+                              <p className="text-gray-300 text-lg font-bold">
+                                {result.data.tier_distribution.Silver || 0}
+                              </p>
+                            </div>
+                            <div className="bg-[#222222] p-3 rounded text-center">
+                              <p className="text-gray-500 text-sm">Bronze</p>
+                              <p className="text-amber-600 text-lg font-bold">
+                                {result.data.tier_distribution.Bronze || 0}
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Follower list */}
+                        {result.data.follower_scores.length > 0 ? (
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm text-left text-gray-400">
+                              <thead className="text-xs uppercase bg-[#222222] text-gray-400">
+                                <tr>
+                                  <th scope="col" className="px-4 py-3 rounded-l-lg">Wallet</th>
+                                  <th scope="col" className="px-4 py-3">Tier</th>
+                                  <th scope="col" className="px-4 py-3">Score</th>
+                                  <th scope="col" className="px-4 py-3">Hits</th>
+                                  <th scope="col" className="px-4 py-3">Tokens</th>
+                                  <th scope="col" className="px-4 py-3 rounded-r-lg">Avg Delay</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {result.data.follower_scores
+                                  .sort((a: FollowerScore, b: FollowerScore) => b.score - a.score)
+                                  .map((follower: FollowerScore, index: number) => (
+                                  <tr key={follower.addr} className={`border-b border-gray-800 ${index % 2 === 0 ? 'bg-[#1A1A1A]' : 'bg-[#1D1D1D]'}`}>
+                                    <td className="px-4 py-3 font-mono">{truncateAddress(follower.addr)}</td>
+                                    <td className="px-4 py-3">
+                                      <span className={`font-bold ${getTierColor(follower.tier)}`}>
+                                        {follower.tier}
+                                      </span>
+                                    </td>
+                                    <td className="px-4 py-3">{follower.score.toFixed(3)}</td>
+                                    <td className="px-4 py-3">{follower.hits}</td>
+                                    <td className="px-4 py-3">{follower.breadth}</td>
+                                    <td className="px-4 py-3">{follower.avg_delay.toFixed(1)} slots</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        ) : (
+                          <div className="bg-[#222222] p-6 rounded text-center">
+                            <p className="text-gray-400">No copy traders found that meet the criteria</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    
+                    <div className="border-t border-gray-800 pt-4 mt-4">
                       <p className="text-gray-400 text-sm">
                         Current step: <span className="text-white">{result.current_step.replace('_', ' ')}</span>
                       </p>
