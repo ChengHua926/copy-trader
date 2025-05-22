@@ -16,6 +16,16 @@ interface FollowerScore {
   tier: string;
 }
 
+// Tooltip component
+const Tooltip = ({ text }: { text: string }) => (
+  <div className="group relative inline-block ml-1">
+    <div className="w-4 h-4 bg-gray-700 rounded-full text-xs flex items-center justify-center text-white cursor-help">?</div>
+    <div className="absolute left-full ml-2 w-64 p-2 bg-[#222222] text-white text-xs rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-10">
+      {text}
+    </div>
+  </div>
+);
+
 export default function Home() {
   const [wallet, setWallet] = useState("");
   const [loading, setLoading] = useState(false);
@@ -55,16 +65,6 @@ export default function Home() {
       setError(err.message || "Failed to fetch data");
     } finally {
       setLoading(false);
-    }
-  };
-
-  // Helper function to render progress status
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "completed": return "bg-[#14F195]";
-      case "pending": return "bg-yellow-500";
-      case "failed": return "bg-red-500";
-      default: return "bg-gray-500";
     }
   };
 
@@ -141,155 +141,103 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Results Section */}
-          {result && (
+          {/* Copy Traders Results */}
+          {result && result.data && result.data.follower_scores && (
             <div className="mt-12 bg-[#111111] border border-gray-800 rounded-2xl p-8 shadow-2xl">
-              <h2 className="text-2xl font-bold text-white mb-4">Processing Status</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Copy Traders</h2>
               
-              {/* Progress Steps */}
-              <div className="mb-6">
-                <div className="relative">
-                  {/* Progress bar */}
-                  <div className="flex mb-6">
-                    {result.progress && Object.entries(result.progress).map(([step, status], index, arr) => (
-                      <div key={step} className="flex-1 relative">
-                        <div className={`h-1 ${getStatusColor(status as string)}`}></div>
-                        <div className={`w-4 h-4 rounded-full absolute top-1/2 -translate-y-1/2 ${index === 0 ? 'left-0' : index === arr.length - 1 ? 'right-0' : 'left-1/2 -translate-x-1/2'} ${getStatusColor(status as string)}`}></div>
-                      </div>
-                    ))}
+              {/* Tier distribution */}
+              {result.data.tier_distribution && (
+                <div className="grid grid-cols-4 gap-3 mb-8">
+                  <div className="bg-[#222222] p-3 rounded text-center">
+                    <p className="text-gray-500 text-sm">Total</p>
+                    <p className="text-white text-lg font-bold">{result.data.follower_scores.length}</p>
                   </div>
-                  
-                  {/* Step labels */}
-                  <div className="flex justify-between text-xs text-gray-400">
-                    {result.progress && Object.keys(result.progress).map((step) => (
-                      <div key={step} className="w-20 text-center">
-                        {step.split('_').join(' ')}
-                      </div>
-                    ))}
+                  <div className="bg-[#222222] p-3 rounded text-center">
+                    <p className="text-gray-500 text-sm">Gold</p>
+                    <p className="text-yellow-400 text-lg font-bold">
+                      {result.data.tier_distribution.Gold || 0}
+                    </p>
+                  </div>
+                  <div className="bg-[#222222] p-3 rounded text-center">
+                    <p className="text-gray-500 text-sm">Silver</p>
+                    <p className="text-gray-300 text-lg font-bold">
+                      {result.data.tier_distribution.Silver || 0}
+                    </p>
+                  </div>
+                  <div className="bg-[#222222] p-3 rounded text-center">
+                    <p className="text-gray-500 text-sm">Bronze</p>
+                    <p className="text-amber-600 text-lg font-bold">
+                      {result.data.tier_distribution.Bronze || 0}
+                    </p>
                   </div>
                 </div>
-              </div>
+              )}
               
-              <div className="rounded-lg bg-[#1A1A1A] p-4 border border-gray-800">
-                <div className="flex items-center mb-2">
-                  <div className="w-2 h-2 rounded-full bg-[#14F195] mr-2"></div>
-                  <p className="text-white">{result.status === "success" ? "Success" : "Failed"}</p>
+              {/* Follower list */}
+              {result.data.follower_scores.length > 0 ? (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm text-left text-gray-400">
+                    <thead className="text-xs uppercase bg-[#222222] text-gray-400">
+                      <tr>
+                        <th scope="col" className="px-4 py-3 rounded-l-lg">Wallet</th>
+                        <th scope="col" className="px-4 py-3">
+                          Tier
+                          <Tooltip text="Ranking based on copy trading score: Gold (≥0.75), Silver (≥0.5), Bronze (≥0.3)" />
+                        </th>
+                        <th scope="col" className="px-4 py-3">
+                          Score
+                          <Tooltip text="Combined metric measuring frequency, speed, and breadth of copying (0-1 scale)" />
+                        </th>
+                        <th scope="col" className="px-4 py-3">
+                          Hits
+                          <Tooltip text="Number of times this wallet followed your trades" />
+                        </th>
+                        <th scope="col" className="px-4 py-3">
+                          Tokens
+                          <Tooltip text="Number of different tokens they've copied from you" />
+                        </th>
+                        <th scope="col" className="px-4 py-3 rounded-r-lg">
+                          Avg Delay
+                          <Tooltip text="Average time (in slots) between your buy and the follower's buy. Lower is better." />
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {result.data.follower_scores
+                        .sort((a: FollowerScore, b: FollowerScore) => b.score - a.score)
+                        .map((follower: FollowerScore, index: number) => (
+                        <tr key={follower.addr} className={`border-b border-gray-800 ${index % 2 === 0 ? 'bg-[#1A1A1A]' : 'bg-[#1D1D1D]'}`}>
+                          <td className="px-4 py-3 font-mono">{truncateAddress(follower.addr)}</td>
+                          <td className="px-4 py-3">
+                            <span className={`font-bold ${getTierColor(follower.tier)}`}>
+                              {follower.tier}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">{follower.score.toFixed(3)}</td>
+                          <td className="px-4 py-3">{follower.hits}</td>
+                          <td className="px-4 py-3">{follower.breadth}</td>
+                          <td className="px-4 py-3">{follower.avg_delay.toFixed(1)} slots</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-                <p className="text-gray-400 mb-4">{result.message}</p>
-                
-                {result.data && (
-                  <div>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="bg-[#222222] p-3 rounded">
-                        <p className="text-gray-500 text-sm">Wallet</p>
-                        <p className="text-white font-mono text-sm truncate">{result.data.wallet_address}</p>
-                      </div>
-                      <div className="bg-[#222222] p-3 rounded">
-                        <p className="text-gray-500 text-sm">Transactions</p>
-                        <p className="text-white">{result.data.transactions_fetched}</p>
-                      </div>
-                    </div>
-                    
-                    {result.data.buy_transactions !== undefined && (
-                      <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="bg-[#222222] p-3 rounded">
-                          <p className="text-gray-500 text-sm">Memecoin Purchases</p>
-                          <p className="text-white">{result.data.buy_transactions}</p>
-                        </div>
-                        <div className="bg-[#222222] p-3 rounded">
-                          <p className="text-gray-500 text-sm">Purchase Rate</p>
-                          <p className="text-white">{result.data.buy_percentage}%</p>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Copy Traders Summary */}
-                    {result.data.follower_scores && (
-                      <div className="mt-8">
-                        <h3 className="text-xl font-bold text-white mb-4">Copy Traders</h3>
-                        
-                        {/* Tier distribution */}
-                        {result.data.tier_distribution && (
-                          <div className="grid grid-cols-4 gap-3 mb-6">
-                            <div className="bg-[#222222] p-3 rounded text-center">
-                              <p className="text-gray-500 text-sm">Total</p>
-                              <p className="text-white text-lg font-bold">{result.data.follower_scores.length}</p>
-                            </div>
-                            <div className="bg-[#222222] p-3 rounded text-center">
-                              <p className="text-gray-500 text-sm">Gold</p>
-                              <p className="text-yellow-400 text-lg font-bold">
-                                {result.data.tier_distribution.Gold || 0}
-                              </p>
-                            </div>
-                            <div className="bg-[#222222] p-3 rounded text-center">
-                              <p className="text-gray-500 text-sm">Silver</p>
-                              <p className="text-gray-300 text-lg font-bold">
-                                {result.data.tier_distribution.Silver || 0}
-                              </p>
-                            </div>
-                            <div className="bg-[#222222] p-3 rounded text-center">
-                              <p className="text-gray-500 text-sm">Bronze</p>
-                              <p className="text-amber-600 text-lg font-bold">
-                                {result.data.tier_distribution.Bronze || 0}
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {/* Follower list */}
-                        {result.data.follower_scores.length > 0 ? (
-                          <div className="overflow-x-auto">
-                            <table className="w-full text-sm text-left text-gray-400">
-                              <thead className="text-xs uppercase bg-[#222222] text-gray-400">
-                                <tr>
-                                  <th scope="col" className="px-4 py-3 rounded-l-lg">Wallet</th>
-                                  <th scope="col" className="px-4 py-3">Tier</th>
-                                  <th scope="col" className="px-4 py-3">Score</th>
-                                  <th scope="col" className="px-4 py-3">Hits</th>
-                                  <th scope="col" className="px-4 py-3">Tokens</th>
-                                  <th scope="col" className="px-4 py-3 rounded-r-lg">Avg Delay</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {result.data.follower_scores
-                                  .sort((a: FollowerScore, b: FollowerScore) => b.score - a.score)
-                                  .map((follower: FollowerScore, index: number) => (
-                                  <tr key={follower.addr} className={`border-b border-gray-800 ${index % 2 === 0 ? 'bg-[#1A1A1A]' : 'bg-[#1D1D1D]'}`}>
-                                    <td className="px-4 py-3 font-mono">{truncateAddress(follower.addr)}</td>
-                                    <td className="px-4 py-3">
-                                      <span className={`font-bold ${getTierColor(follower.tier)}`}>
-                                        {follower.tier}
-                                      </span>
-                                    </td>
-                                    <td className="px-4 py-3">{follower.score.toFixed(3)}</td>
-                                    <td className="px-4 py-3">{follower.hits}</td>
-                                    <td className="px-4 py-3">{follower.breadth}</td>
-                                    <td className="px-4 py-3">{follower.avg_delay.toFixed(1)} slots</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        ) : (
-                          <div className="bg-[#222222] p-6 rounded text-center">
-                            <p className="text-gray-400">No copy traders found that meet the criteria</p>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    
-                    <div className="border-t border-gray-800 pt-4 mt-4">
-                      <p className="text-gray-400 text-sm">
-                        Current step: <span className="text-white">{result.current_step.replace('_', ' ')}</span>
-                      </p>
-                      {result.next_step && (
-                        <p className="text-gray-400 text-sm">
-                          Next step: <span className="text-white">{result.next_step.replace('_', ' ')}</span>
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                )}
+              ) : (
+                <div className="bg-[#222222] p-6 rounded text-center">
+                  <p className="text-gray-400">No copy traders found that meet the criteria</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Loading Indicator */}
+          {loading && (
+            <div className="mt-12 bg-[#111111] border border-gray-800 rounded-2xl p-8 shadow-2xl text-center">
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-12 h-12 border-4 border-t-[#14F195] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mb-4"></div>
+                <p className="text-white">Analyzing wallet activity and finding copy traders...</p>
+                <p className="text-gray-400 text-sm mt-2">This may take a few minutes</p>
               </div>
             </div>
           )}
