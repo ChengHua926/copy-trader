@@ -22,7 +22,9 @@ app.add_middleware(
 
 # Constants
 HELIUS_API_KEY = "8d024022-a5bb-4586-a7ac-6aada64c3c8f"
-BASE_URL = "https://api.helius.xyz/v0/addresses"
+MORALIS_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6ImJkNzAzMjg4LWE3NDktNDM4OC1iOWNkLTUwMjlmY2U4Y2Q1ZSIsIm9yZ0lkIjoiNDQ1MDE1IiwidXNlcklkIjoiNDU3ODY1IiwidHlwZUlkIjoiYmZkZGI3YmEtMGUzNi00MmY1LWExYTgtYmE2Mzg4N2MxMmUwIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NDYyMzYxOTgsImV4cCI6NDkwMTk5NjE5OH0.gfohteTPWzmjXQeIvbEhwYgrVLDYAIQyhKeGVcBLpQc"
+HELIUS_BASE_URL = "https://api.helius.xyz/v0/addresses"
+MORALIS_BASE_URL = "https://solana-gateway.moralis.io/token/mainnet"
 TRANSACTION_TYPES = ["SWAP", "TRANSFER"]
 TOTAL_TRANSACTIONS_NEEDED = 500
 TRANSACTIONS_PER_PAGE = 100
@@ -53,16 +55,19 @@ def ensure_wallet_data_dirs(wallet_address: str) -> Dict[str, str]:
     wallet_dir = os.path.join(os.path.dirname(__file__), "data", wallet_address)
     transactions_dir = os.path.join(wallet_dir, "transactions")
     filtered_dir = os.path.join(wallet_dir, "filtered_transactions")
+    token_swaps_dir = os.path.join(wallet_dir, "token_swaps")
     
     # Create dirs if they don't exist
     os.makedirs(wallet_dir, exist_ok=True)
     os.makedirs(transactions_dir, exist_ok=True)
     os.makedirs(filtered_dir, exist_ok=True)
+    os.makedirs(token_swaps_dir, exist_ok=True)
     
     return {
         "wallet_dir": wallet_dir,
         "transactions_dir": transactions_dir,
-        "filtered_dir": filtered_dir
+        "filtered_dir": filtered_dir,
+        "token_swaps_dir": token_swaps_dir
     }
 
 def save_transaction(transaction: Dict[Any, Any], transactions_dir: str):
@@ -80,7 +85,7 @@ def save_transaction(transaction: Dict[Any, Any], transactions_dir: str):
 
 def fetch_transactions(wallet_address: str, before_signature: str = None) -> List[Dict[Any, Any]]:
     """Fetch transactions from Helius API with pagination"""
-    url = f"{BASE_URL}/{wallet_address}/transactions"
+    url = f"{HELIUS_BASE_URL}/{wallet_address}/transactions"
     
     params = {
         "api-key": HELIUS_API_KEY,
@@ -218,6 +223,151 @@ def filter_transactions(wallet_address: str) -> Dict[str, Any]:
         "filtered_dir": filtered_dir
     }
 
+# Step 3: Fetch Swaps
+def fetch_token_swaps(token_address: str, from_date: int, to_date: int, cursor: Optional[str] = None) -> Dict[Any, Any]:
+    """
+    Fetch swap transactions for a specific token address using timestamps
+    """
+    url = f"{MORALIS_BASE_URL}/{token_address}/swaps"
+    
+    # Add parameters to URL
+    params = []
+    params.append(f"fromDate={from_date}")
+    params.append(f"toDate={to_date}")
+    
+    if cursor:
+        params.append(f"cursor={cursor}")
+    
+    # Add order parameter
+    params.append("order=DESC")
+    
+    # Join all parameters with &
+    if params:
+        url += "?" + "&".join(params)
+    
+    headers = {
+        "Accept": "application/json",
+        "X-API-Key": MORALIS_API_KEY
+    }
+    
+    try:
+        print(f"Requesting URL: {url}")
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        return data
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching swaps: {e}")
+        return {}
+
+def fetch_all_swaps(token_address: str, from_date: int, to_date: int) -> List[Dict[Any, Any]]:
+    """
+    Fetch all swap transactions using pagination
+    """
+    all_results = []
+    cursor = None
+    
+    while True:
+        result = fetch_token_swaps(token_address, from_date, to_date, cursor)
+        
+        if not result or 'result' not in result:
+            break
+            
+        all_results.extend(result['result'])
+        
+        # Check if there's a cursor for the next page
+        cursor = result.get('cursor')
+        if not cursor:
+            break
+            
+        print(f"Fetching next page with cursor: {cursor}")
+    
+    return all_results
+
+def save_swaps_to_file(data: List[Dict[Any, Any]], token_address: str, original_tx_signature: str, token_swaps_dir: str):
+    """
+    Save the swaps data to a JSON file in the token_swaps directory
+    """
+    # Create filename using token address and original transaction signature
+    filename = f"swaps_{token_address[:8]}_{original_tx_signature[:8]}.json"
+    filepath = os.path.join(token_swaps_dir, filename)
+    
+    with open(filepath, 'w') as f:
+        json.dump({"result": data}, f, indent=2)
+    
+    print(f"Swaps data saved to: {filepath}")
+    return filepath
+
+def fetch_swaps_for_filtered_transactions(wallet_address: str) -> Dict[str, Any]:
+    """
+    For each filtered transaction, fetch swaps that occurred right after it
+    """
+    dirs = ensure_wallet_data_dirs(wallet_address)
+    filtered_dir = dirs["filtered_dir"]
+    token_swaps_dir = dirs["token_swaps_dir"]
+    
+    # Get all filtered transaction files
+    filtered_files = glob.glob(os.path.join(filtered_dir, "*.json"))
+    
+    total_files = len(filtered_files)
+    print(f"Found {total_files} filtered transaction files to process")
+    
+    swaps_data = []
+    processed_count = 0
+    tokens_with_swaps = 0
+    total_swaps_found = 0
+    
+    for i, filtered_file in enumerate(filtered_files, 1):
+        try:
+            # Read the filtered transaction file
+            with open(filtered_file, 'r') as f:
+                tx_data = json.load(f)
+            
+            token_address = tx_data['mint']
+            timestamp = tx_data['timestamp']
+            signature = tx_data['signature']
+            
+            print(f"Processing file {i}/{total_files}")
+            print(f"Token Address: {token_address}")
+            print(f"Timestamp: {timestamp}")
+            
+            # Fetch swaps from timestamp to timestamp + 2 seconds
+            from_date = timestamp
+            to_date = timestamp + 2
+            
+            # Fetch all swaps for this token in the time window
+            all_results = fetch_all_swaps(token_address, from_date, to_date)
+            
+            # Save results to file if any were found
+            if all_results:
+                filepath = save_swaps_to_file(all_results, token_address, signature, token_swaps_dir)
+                tokens_with_swaps += 1
+                total_swaps_found += len(all_results)
+                
+                swaps_data.append({
+                    "token": token_address,
+                    "timestamp": timestamp,
+                    "signature": signature,
+                    "swaps_found": len(all_results),
+                    "filepath": filepath
+                })
+            
+            processed_count += 1
+            
+            # Add a small delay to avoid rate limiting
+            time.sleep(0.5)
+            
+        except Exception as e:
+            print(f"Error processing file {filtered_file}: {e}")
+            continue
+    
+    return {
+        "filtered_transactions_processed": processed_count,
+        "tokens_with_swaps": tokens_with_swaps,
+        "total_swaps_found": total_swaps_found,
+        "swaps_data": swaps_data
+    }
+
 # Main API endpoint
 @app.post("/process-wallet", response_model=ProgressResponse)
 async def process_wallet(request: WalletRequest):
@@ -233,21 +383,27 @@ async def process_wallet(request: WalletRequest):
         # Step 2: Filter transactions
         filter_result = filter_transactions(wallet_address)
         
+        # Step 3: Fetch swaps for filtered transactions
+        swaps_result = fetch_swaps_for_filtered_transactions(wallet_address)
+        
         return ProgressResponse(
             status="success",
-            message=f"Processed {fetch_result['transactions_fetched']} transactions, found {filter_result['buy_transactions']} memecoin purchases",
+            message=f"Processed wallet {wallet_address}: Found {filter_result['buy_transactions']} memecoin purchases and {swaps_result['total_swaps_found']} copy trades",
             data={
                 "wallet_address": wallet_address,
                 "transactions_fetched": fetch_result["transactions_fetched"],
                 "buy_transactions": filter_result["buy_transactions"],
-                "buy_percentage": filter_result["buy_percentage"]
+                "buy_percentage": filter_result["buy_percentage"],
+                "swaps_processed": swaps_result["filtered_transactions_processed"],
+                "tokens_with_swaps": swaps_result["tokens_with_swaps"],
+                "total_swaps_found": swaps_result["total_swaps_found"]
             },
-            current_step="filter_transactions",
-            next_step="fetch_swaps",
+            current_step="fetch_swaps",
+            next_step="analyze_copy_trades",
             progress={
                 "fetch_transactions": "completed",
                 "filter_transactions": "completed",
-                "fetch_swaps": "pending",
+                "fetch_swaps": "completed",
                 "analyze_copy_trades": "pending",
                 "calculate_scores": "pending"
             }
