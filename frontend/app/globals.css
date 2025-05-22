@@ -44,3 +44,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* Animation delay utilities */
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
