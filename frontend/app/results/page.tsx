@@ -63,17 +63,17 @@ const CopyButton = ({ text }: { text: string }) => {
 };
 
 // Simplified score indicator that just uses color
-const ScoreIndicator = ({ score }: { score: number }) => {
-  // Get color based on score range
-  const getScoreColor = () => {
-    if (score >= 0.75) return "text-[#14F195]"; // High confidence
-    if (score >= 0.5) return "text-[#9945FF]";  // Medium confidence
-    if (score >= 0.3) return "text-[#FF9900]";  // Low confidence
-    return "text-gray-400";                    // Very low confidence
+const ScoreIndicator = ({ score, tier }: { score: number, tier: string }) => {
+  // Get color based on tier to ensure consistency
+  const getColorFromTier = () => {
+    if (tier === "High Confidence") return "text-[#14F195]";
+    if (tier === "Medium Confidence") return "text-[#9945FF]";
+    if (tier === "Low Confidence") return "text-[#FF9900]";
+    return "text-gray-400";
   };
   
   return (
-    <div className={`font-medium ${getScoreColor()} flex justify-center`}>
+    <div className={`font-medium ${getColorFromTier()} flex justify-center`}>
       {score.toFixed(3)}
     </div>
   );
@@ -341,7 +341,8 @@ export default function ResultsPage() {
                 <thead className="text-xs uppercase bg-[#1A1A2E] text-gray-400">
                   <tr>
                     <th scope="col" className="px-4 py-4 text-center w-[5%]">Rank</th>
-                    <th scope="col" className="px-4 py-4 w-[35%]">Wallet</th>
+                    <th scope="col" className="px-4 py-4 w-[30%]">Wallet</th>
+                    <th scope="col" className="px-4 py-4 text-center w-[5%]">Actions</th>
                     <th 
                       scope="col" 
                       className="px-4 py-4 cursor-pointer hover:bg-[#232336] text-center w-[15%]"
@@ -432,14 +433,25 @@ export default function ResultsPage() {
                         <td className="px-4 py-4 font-medium text-gray-300 text-center">{startIndex + index + 1}</td>
                         <td className="px-4 py-4">
                           <div className="group flex items-center">
-                            <Link 
-                              href={`/transactions/${wallet}/${follower.addr}`}
-                              className="font-mono text-sm tracking-wider text-gray-200 truncate hover:text-[#14F195] transition-colors"
-                            >
-                              {follower.addr}
-                            </Link>
+                            <span className="font-mono text-sm tracking-wider text-gray-200 truncate">{follower.addr}</span>
                             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                               <CopyButton text={follower.addr} />
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-4 py-4 text-center">
+                          <div className="group relative inline-block">
+                            <Link 
+                              href={`/transactions/${wallet}/${follower.addr}`}
+                              className="p-2 rounded-full bg-[#1A1A2E] hover:bg-[#232336] transition-colors inline-flex items-center justify-center"
+                              title="View copy transactions"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#9945FF]" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" clipRule="evenodd" />
+                              </svg>
+                            </Link>
+                            <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-40 p-2 bg-[#13131D] text-xs text-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-10">
+                              View copy transactions
                             </div>
                           </div>
                         </td>
@@ -458,7 +470,7 @@ export default function ResultsPage() {
                           </div>
                         </td>
                         <td className="px-4 py-4 text-center">
-                          <ScoreIndicator score={follower.score} />
+                          <ScoreIndicator score={follower.score} tier={follower.tier} />
                         </td>
                         <td className="px-4 py-4 text-center">
                           <span className="font-medium">{follower.hits}</span>
@@ -473,7 +485,7 @@ export default function ResultsPage() {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={7} className="px-5 py-8 text-center text-gray-400">
+                      <td colSpan={8} className="px-5 py-8 text-center text-gray-400">
                         No copy traders found that meet the criteria
                       </td>
                     </tr>

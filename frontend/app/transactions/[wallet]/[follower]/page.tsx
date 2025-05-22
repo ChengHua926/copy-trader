@@ -55,9 +55,46 @@ const formatUSD = (amount: number) => {
 
 // Transaction Card Component
 const TransactionCard = ({ transaction }: { transaction: CopyTransaction }) => {
+  // Helper function to get appropriate delay text and color
+  const getDelayInfo = () => {
+    const slots = transaction.delay_slots;
+    
+    if (slots <= 3) {
+      return {
+        text: "Very Fast",
+        color: "text-[#00E4FF]",
+        bgColor: "bg-[#00E4FF]/10",
+        borderColor: "border-[#00E4FF]/30"
+      };
+    } else if (slots <= 6) {
+      return {
+        text: "Fast",
+        color: "text-[#00BFFF]",
+        bgColor: "bg-[#00BFFF]/10",
+        borderColor: "border-[#00BFFF]/30"
+      };
+    } else if (slots <= 10) {
+      return {
+        text: "Average",
+        color: "text-[#FFD700]",
+        bgColor: "bg-[#FFD700]/10",
+        borderColor: "border-[#FFD700]/30"
+      };
+    } else {
+      return {
+        text: "Slow",
+        color: "text-[#FF6B6B]",
+        bgColor: "bg-[#FF6B6B]/10", 
+        borderColor: "border-[#FF6B6B]/30"
+      };
+    }
+  };
+  
+  const delayInfo = getDelayInfo();
+  
   return (
     <div className="bg-[#13131D] border border-[#232336] rounded-xl p-6 mb-6 hover:border-[#9945FF]/30 transition-colors">
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-6 relative">
         {/* Token Information */}
         <div className="flex-none w-full md:w-48 flex flex-col items-center justify-center">
           <div className="h-16 w-16 mb-4 overflow-hidden rounded-full bg-[#1A1A2E] flex items-center justify-center">
@@ -98,14 +135,28 @@ const TransactionCard = ({ transaction }: { transaction: CopyTransaction }) => {
             
             <div>
               <div className="text-xs text-gray-400 mb-1">Transaction</div>
-              <a 
-                href={`https://solscan.io/tx/${transaction.leader_transaction.signature}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-[#14F195] transition-colors text-sm font-mono break-all"
-              >
-                {truncateHash(transaction.leader_transaction.signature)}
-              </a>
+              <div className="flex items-center justify-between">
+                <a 
+                  href={`https://solscan.io/tx/${transaction.leader_transaction.signature}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#14F195] transition-colors text-sm font-mono break-all"
+                >
+                  {truncateHash(transaction.leader_transaction.signature)}
+                </a>
+                <a 
+                  href={`https://solscan.io/tx/${transaction.leader_transaction.signature}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 text-gray-400 hover:text-[#14F195] transition-colors"
+                  title="View on Solscan"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
           
@@ -128,14 +179,28 @@ const TransactionCard = ({ transaction }: { transaction: CopyTransaction }) => {
             
             <div>
               <div className="text-xs text-gray-400 mb-1">Transaction</div>
-              <a 
-                href={`https://solscan.io/tx/${transaction.follower_transaction.signature}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-[#9945FF] transition-colors text-sm font-mono break-all"
-              >
-                {truncateHash(transaction.follower_transaction.signature)}
-              </a>
+              <div className="flex items-center justify-between">
+                <a 
+                  href={`https://solscan.io/tx/${transaction.follower_transaction.signature}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#9945FF] transition-colors text-sm font-mono break-all"
+                >
+                  {truncateHash(transaction.follower_transaction.signature)}
+                </a>
+                <a 
+                  href={`https://solscan.io/tx/${transaction.follower_transaction.signature}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 text-gray-400 hover:text-[#9945FF] transition-colors"
+                  title="View on Solscan"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -143,17 +208,51 @@ const TransactionCard = ({ transaction }: { transaction: CopyTransaction }) => {
         {/* Delay Information */}
         <div className="flex-none w-full md:w-32 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-[#232336] mt-4 pt-4 md:mt-0 md:pt-0 md:pl-6">
           <div className="text-xs text-gray-400 mb-2">Copy Delay</div>
-          <div className={`text-2xl font-bold ${
-            transaction.delay_slots <= 3 ? "text-[#14F195]" : 
-            transaction.delay_slots <= 6 ? "text-[#9945FF]" : 
-            "text-[#FF9900]"
-          }`}>
-            {transaction.delay_slots} slots
+          <div className={`inline-flex items-center px-3 py-1 rounded-md ${delayInfo.bgColor} ${delayInfo.color} border ${delayInfo.borderColor}`}>
+            <span className="font-medium">{transaction.delay_slots} slots</span>
           </div>
-          <div className="text-xs text-gray-400 mt-2 text-center">
-            {transaction.delay_slots <= 3 ? "Very Fast" : 
-             transaction.delay_slots <= 6 ? "Fast" : 
-             transaction.delay_slots <= 10 ? "Average" : "Slow"}
+          <div className={`text-sm ${delayInfo.color} mt-2 text-center font-medium`}>
+            {delayInfo.text}
+          </div>
+          
+          <div className="mt-4 pt-4 border-t border-[#232336] w-full">
+            <div className="flex items-center justify-center gap-4">
+              <a 
+                href={`https://solscan.io/tx/${transaction.leader_transaction.signature}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                title="View leader transaction on Solscan"
+              >
+                <div className="p-2 rounded-full bg-[#1A1A2E] hover:bg-[#232336] transition-colors inline-flex items-center justify-center text-[#14F195]">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </div>
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#13131D] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+                  Leader Transaction
+                </span>
+              </a>
+              
+              <a 
+                href={`https://solscan.io/tx/${transaction.follower_transaction.signature}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                title="View follower transaction on Solscan"
+              >
+                <div className="p-2 rounded-full bg-[#1A1A2E] hover:bg-[#232336] transition-colors inline-flex items-center justify-center text-[#9945FF]">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </div>
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#13131D] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+                  Follower Transaction
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
