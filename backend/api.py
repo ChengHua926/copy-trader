@@ -4,11 +4,17 @@ import time
 import glob
 import requests
 import pandas as pd
+import logging
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Tuple
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, 
+                   format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger("copy_trader_api")
 
 # Initialize FastAPI app
 app = FastAPI(title="Copy Trader API")
@@ -16,7 +22,7 @@ app = FastAPI(title="Copy Trader API")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -70,6 +76,33 @@ class FollowerScore(BaseModel):
     breadth_norm: float
     score: float
     tier: str
+
+# New models for copy transactions endpoint
+class CopyTransactionRequest(BaseModel):
+    target_wallet: str
+    follower_wallet: str
+
+class TokenInfo(BaseModel):
+    address: str
+    name: str
+    symbol: str
+    logo: str
+
+class TransactionInfo(BaseModel):
+    slot: int
+    timestamp: int
+    signature: str
+    amount: str
+    usd_amount: float
+
+class CopyTransaction(BaseModel):
+    token: TokenInfo
+    leader_transaction: TransactionInfo
+    follower_transaction: TransactionInfo
+    delay_slots: int
+
+class CopyTransactionsResponse(BaseModel):
+    transactions: List[CopyTransaction]
 
 # Step 1: Fetch Transactions
 def ensure_wallet_data_dirs(wallet_address: str) -> Dict[str, str]:
@@ -259,6 +292,7 @@ def fetch_token_swaps(token_address: str, from_date: int, to_date: int, cursor: 
     params = []
     params.append(f"fromDate={from_date}")
     params.append(f"toDate={to_date}")
+    params.append("transactionTypes=buy")
     
     if cursor:
         params.append(f"cursor={cursor}")
@@ -774,6 +808,158 @@ async def process_wallet(request: WalletRequest):
 async def root():
     """Root endpoint for health check"""
     return {"status": "healthy", "message": "Copy Trader API is running"}
+
+@app.post("/get-copy-transactions", response_model=CopyTransactionsResponse)
+async def get_copy_transactions(request: CopyTransactionRequest):
+    """
+    Get copy transactions between a target wallet and a follower wallet
+    """
+    target_wallet = request.target_wallet
+    follower_wallet = request.follower_wallet
+    
+    logger.info(f"Processing copy transactions request for target wallet: {target_wallet} and follower wallet: {follower_wallet}")
+    
+    try:
+        # Get paths to directories
+        dirs = ensure_wallet_data_dirs(target_wallet)
+        copy_trades_dir = dirs["copy_trades_dir"]
+        token_swaps_dir = dirs["token_swaps_dir"]
+        
+        logger.info(f"Looking for copy trades in: {copy_trades_dir}")
+        
+        # Get all copy_trades JSON files
+        copy_trades_files = glob.glob(os.path.join(copy_trades_dir, "*.json"))
+        
+        if not copy_trades_files:
+            logger.warning(f"No copy trades files found for wallet: {target_wallet}")
+            return CopyTransactionsResponse(transactions=[])
+        
+        # Sort files by modification time (newest first)
+        copy_trades_files.sort(key=os.path.getmtime, reverse=True)
+        
+        # Use the most recent file
+        latest_file = copy_trades_files[0]
+        logger.info(f"Using most recent copy trades file: {latest_file}")
+        
+        # Load the copy trades data
+        with open(latest_file, 'r') as f:
+            copy_trades_data = json.load(f)
+        
+        # Filter for the specific follower wallet
+        follower_trades = [trade for trade in copy_trades_data 
+                          if trade.get('follower_addr') == follower_wallet]
+        
+        logger.info(f"Found {len(follower_trades)} copy trades for follower wallet: {follower_wallet}")
+        
+        # Deduplicate by creating a unique key for each transaction
+        unique_trades = {}
+        for trade in follower_trades:
+            # Create a unique key using token, lead signature, and follower slot
+            unique_key = f"{trade.get('token')}_{trade.get('lead_index')[:8]}_{trade.get('follower_slot')}"
+            
+            # Only keep one entry for each unique transaction
+            if unique_key not in unique_trades:
+                unique_trades[unique_key] = trade
+        
+        logger.info(f"After deduplication: {len(unique_trades)} unique copy trades")
+        
+        transactions = []
+        
+        # Use the deduplicated trades
+        for trade in unique_trades.values():
+            token_mint = trade.get('token')
+            lead_signature = trade.get('lead_index')
+            lead_slot = trade.get('lead_slot')
+            follower_slot = trade.get('follower_slot')
+            delay_slots = trade.get('delay_slots')
+            timestamp = trade.get('timestamp')
+            
+            logger.info(f"Processing trade for token: {token_mint}, lead signature: {lead_signature[:8]}...")
+            
+            # Find the corresponding token swaps file
+            # Format: swaps_{token_mint[:8]}_{lead_signature[:8]}.json
+            swap_file_pattern = f"swaps_{token_mint[:8]}_{lead_signature[:8]}*.json"
+            swap_files = glob.glob(os.path.join(token_swaps_dir, swap_file_pattern))
+            
+            if not swap_files:
+                logger.warning(f"No swap file found for token: {token_mint} and signature: {lead_signature[:8]}")
+                continue
+            
+            swap_file = swap_files[0]
+            logger.info(f"Found swap file: {swap_file}")
+            
+            # Load the swap data
+            with open(swap_file, 'r') as f:
+                swap_data = json.load(f)
+            
+            # Find leader transaction
+            leader_tx = None
+            for result in swap_data.get('result', []):
+                # Just a simple check - the leader transaction will have the exact signature
+                if result.get('transactionHash') == lead_signature:
+                    leader_tx = result
+                    break
+            
+            # Find follower transaction
+            follower_tx = None
+            for result in swap_data.get('result', []):
+                if result.get('walletAddress') == follower_wallet and result.get('blockNumber') == follower_slot:
+                    follower_tx = result
+                    break
+            
+            if not leader_tx or not follower_tx:
+                logger.warning(f"Could not find both leader and follower transactions for token: {token_mint}")
+                continue
+            
+            # Extract token info from leader transaction
+            token_info = None
+            if 'bought' in leader_tx and leader_tx['transactionType'] == 'buy':
+                bought = leader_tx['bought']
+                token_info = TokenInfo(
+                    address=bought.get('address', ''),
+                    name=bought.get('name', ''),
+                    symbol=bought.get('symbol', ''),
+                    logo=bought.get('logo', '')
+                )
+            
+            if not token_info:
+                logger.warning(f"Could not extract token info for token: {token_mint}")
+                continue
+            
+            # Extract leader transaction info
+            leader_transaction = TransactionInfo(
+                slot=lead_slot,
+                timestamp=timestamp,
+                signature=lead_signature,
+                amount=leader_tx.get('bought', {}).get('amount', '0'),
+                usd_amount=leader_tx.get('bought', {}).get('usdAmount', 0)
+            )
+            
+            # Extract follower transaction info
+            follower_transaction = TransactionInfo(
+                slot=follower_slot,
+                timestamp=timestamp,  # Using the same timestamp for simplicity
+                signature=follower_tx.get('transactionHash', ''),
+                amount=follower_tx.get('bought', {}).get('amount', '0'),
+                usd_amount=follower_tx.get('bought', {}).get('usdAmount', 0)
+            )
+            
+            # Create a copy transaction object
+            copy_transaction = CopyTransaction(
+                token=token_info,
+                leader_transaction=leader_transaction,
+                follower_transaction=follower_transaction,
+                delay_slots=delay_slots
+            )
+            
+            transactions.append(copy_transaction)
+            logger.info(f"Added copy transaction for token: {token_info.symbol}")
+        
+        return CopyTransactionsResponse(transactions=transactions)
+    
+    except Exception as e:
+        logger.error(f"Error processing copy transactions: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Error processing copy transactions: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn

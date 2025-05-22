@@ -432,7 +432,12 @@ export default function ResultsPage() {
                         <td className="px-4 py-4 font-medium text-gray-300 text-center">{startIndex + index + 1}</td>
                         <td className="px-4 py-4">
                           <div className="group flex items-center">
-                            <span className="font-mono text-sm tracking-wider text-gray-200 truncate">{follower.addr}</span>
+                            <Link 
+                              href={`/transactions/${wallet}/${follower.addr}`}
+                              className="font-mono text-sm tracking-wider text-gray-200 truncate hover:text-[#14F195] transition-colors"
+                            >
+                              {follower.addr}
+                            </Link>
                             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                               <CopyButton text={follower.addr} />
                             </div>
