@@ -597,9 +597,9 @@ def normalize_metrics(metrics: pd.DataFrame, total_lead_buys: int) -> pd.DataFra
     # breadth_norm = breadth / hits
     metrics['breadth_norm'] = metrics['breadth'] / metrics['hits']
     
-    # speed_norm: 1.0 if avg_delay ≤ 3, else linear fall-off to 0.0 at WINDOW
+    # speed_norm: 1.0 if avg_delay ≤ 4, else linear fall-off to 0.0 at WINDOW
     metrics['speed_norm'] = metrics['avg_delay'].apply(
-        lambda x: 1.0 if x <= 3 else max(0, 1 - (x - 3) / (WINDOW - 3))
+        lambda x: 1.0 if x <= 4 else max(0, 1 - (x - 4) / (WINDOW - 4))
     )
     
     return metrics
