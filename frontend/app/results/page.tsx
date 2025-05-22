@@ -94,7 +94,7 @@ const Pagination = ({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-3 py-1 rounded border border-[#232336] bg-[#1A1A2E] text-white disabled:opacity-50"
+        className="px-3 py-1 rounded border border-[#232336] bg-[#1A1A2E] text-white disabled:opacity-50 hover:enabled:bg-[#232336] transition-colors cursor-pointer"
       >
         ← Prev
       </button>
@@ -107,7 +107,7 @@ const Pagination = ({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-3 py-1 rounded border border-[#232336] bg-[#1A1A2E] text-white disabled:opacity-50"
+        className="px-3 py-1 rounded border border-[#232336] bg-[#1A1A2E] text-white disabled:opacity-50 hover:enabled:bg-[#232336] transition-colors cursor-pointer"
       >
         Next →
       </button>
@@ -337,14 +337,14 @@ export default function ResultsPage() {
           {/* Follower Table */}
           <div className="bg-[#13131D] border border-[#232336] rounded-xl overflow-hidden">
             <div className="w-full">
-              <table className="w-full text-left">
+              <table className="w-full text-left table-fixed">
                 <thead className="text-xs uppercase bg-[#1A1A2E] text-gray-400">
                   <tr>
-                    <th scope="col" className="px-5 py-4 text-center">Rank</th>
-                    <th scope="col" className="px-5 py-4">Wallet</th>
+                    <th scope="col" className="px-4 py-4 text-center w-[5%]">Rank</th>
+                    <th scope="col" className="px-4 py-4 w-[35%]">Wallet</th>
                     <th 
                       scope="col" 
-                      className="px-5 py-4 cursor-pointer hover:bg-[#232336] text-center"
+                      className="px-4 py-4 cursor-pointer hover:bg-[#232336] text-center w-[15%]"
                       onClick={() => handleSort("tier")}
                     >
                       <div className="flex items-center justify-center">
@@ -359,7 +359,7 @@ export default function ResultsPage() {
                     </th>
                     <th 
                       scope="col" 
-                      className="px-5 py-4 cursor-pointer hover:bg-[#232336] text-center"
+                      className="px-4 py-4 cursor-pointer hover:bg-[#232336] text-center w-[10%]"
                       onClick={() => handleSort("score")}
                     >
                       <div className="flex items-center justify-center">
@@ -374,7 +374,7 @@ export default function ResultsPage() {
                     </th>
                     <th 
                       scope="col" 
-                      className="px-5 py-4 cursor-pointer hover:bg-[#232336] text-center"
+                      className="px-4 py-4 cursor-pointer hover:bg-[#232336] text-center w-[10%]"
                       onClick={() => handleSort("hits")}
                     >
                       <div className="flex items-center justify-center">
@@ -392,7 +392,7 @@ export default function ResultsPage() {
                     </th>
                     <th 
                       scope="col" 
-                      className="px-5 py-4 cursor-pointer hover:bg-[#232336] text-center"
+                      className="px-4 py-4 cursor-pointer hover:bg-[#232336] text-center w-[10%]"
                       onClick={() => handleSort("breadth")}
                     >
                       <div className="flex items-center justify-center">
@@ -407,7 +407,7 @@ export default function ResultsPage() {
                     </th>
                     <th 
                       scope="col" 
-                      className="px-5 py-4 cursor-pointer hover:bg-[#232336] text-center"
+                      className="px-4 py-4 cursor-pointer hover:bg-[#232336] text-center w-[15%]"
                       onClick={() => handleSort("avg_delay")}
                     >
                       <div className="flex items-center justify-center">
@@ -429,16 +429,16 @@ export default function ResultsPage() {
                   {paginatedData.length > 0 ? (
                     paginatedData.map((follower: FollowerScore, index: number) => (
                       <tr key={follower.addr} className="hover:bg-[#1A1A2E] transition-colors">
-                        <td className="px-5 py-4 font-medium text-gray-300 text-center">{startIndex + index + 1}</td>
-                        <td className="px-5 py-4">
+                        <td className="px-4 py-4 font-medium text-gray-300 text-center">{startIndex + index + 1}</td>
+                        <td className="px-4 py-4">
                           <div className="group flex items-center">
-                            <span className="font-mono text-sm tracking-wider text-gray-200">{follower.addr}</span>
+                            <span className="font-mono text-sm tracking-wider text-gray-200 truncate">{follower.addr}</span>
                             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                               <CopyButton text={follower.addr} />
                             </div>
                           </div>
                         </td>
-                        <td className="px-5 py-4 text-center">
+                        <td className="px-4 py-4 text-center">
                           <div className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-medium ${
                             follower.tier === "High Confidence" ? "bg-[#14F195]/10 text-[#14F195] border border-[#14F195]/30" : 
                             follower.tier === "Medium Confidence" ? "bg-[#9945FF]/10 text-[#9945FF] border border-[#9945FF]/30" : 
@@ -452,23 +452,23 @@ export default function ResultsPage() {
                             {follower.tier}
                           </div>
                         </td>
-                        <td className="px-5 py-4 text-center">
+                        <td className="px-4 py-4 text-center">
                           <ScoreIndicator score={follower.score} />
                         </td>
-                        <td className="px-5 py-4 text-center">
+                        <td className="px-4 py-4 text-center">
                           <span className="font-medium">{follower.hits}</span>
                         </td>
-                        <td className="px-5 py-4 text-center">
+                        <td className="px-4 py-4 text-center">
                           <span className="font-medium">{follower.breadth}</span>
                         </td>
-                        <td className="px-5 py-4 text-gray-400 text-center">
+                        <td className="px-4 py-4 text-gray-400 text-center">
                           {follower.avg_delay.toFixed(1)} slots
                         </td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={6} className="px-5 py-8 text-center text-gray-400">
+                      <td colSpan={7} className="px-5 py-8 text-center text-gray-400">
                         No copy traders found that meet the criteria
                       </td>
                     </tr>
