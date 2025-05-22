@@ -3,6 +3,8 @@ import json
 import time
 import glob
 import requests
+import pandas as pd
+from datetime import datetime
 from typing import Dict, Any, List, Optional, Tuple
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -56,18 +58,21 @@ def ensure_wallet_data_dirs(wallet_address: str) -> Dict[str, str]:
     transactions_dir = os.path.join(wallet_dir, "transactions")
     filtered_dir = os.path.join(wallet_dir, "filtered_transactions")
     token_swaps_dir = os.path.join(wallet_dir, "token_swaps")
+    copy_trades_dir = os.path.join(wallet_dir, "copy_trades")
     
     # Create dirs if they don't exist
     os.makedirs(wallet_dir, exist_ok=True)
     os.makedirs(transactions_dir, exist_ok=True)
     os.makedirs(filtered_dir, exist_ok=True)
     os.makedirs(token_swaps_dir, exist_ok=True)
+    os.makedirs(copy_trades_dir, exist_ok=True)
     
     return {
         "wallet_dir": wallet_dir,
         "transactions_dir": transactions_dir,
         "filtered_dir": filtered_dir,
-        "token_swaps_dir": token_swaps_dir
+        "token_swaps_dir": token_swaps_dir,
+        "copy_trades_dir": copy_trades_dir
     }
 
 def save_transaction(transaction: Dict[Any, Any], transactions_dir: str):
@@ -368,6 +373,156 @@ def fetch_swaps_for_filtered_transactions(wallet_address: str) -> Dict[str, Any]
         "swaps_data": swaps_data
     }
 
+# Step 4: Analyze Copy Trades
+def load_filtered_transaction(file_path: str) -> Dict[str, Any]:
+    """Load a single filtered transaction file"""
+    with open(file_path, 'r') as f:
+        return json.load(f)
+
+def load_swap_data(file_path: str) -> Dict[str, Any]:
+    """Load a single swap data file"""
+    with open(file_path, 'r') as f:
+        return json.load(f)
+
+def create_copy_trades_table(wallet_address: str) -> pd.DataFrame:
+    """
+    Create a table of copy trades by analyzing filtered transactions and swap data
+    """
+    # Initialize lists to store the data
+    copy_trades = []
+    
+    # Get paths to directories
+    dirs = ensure_wallet_data_dirs(wallet_address)
+    filtered_dir = dirs["filtered_dir"]
+    token_swaps_dir = dirs["token_swaps_dir"]
+    
+    # Process each filtered transaction
+    for filtered_tx_file in os.listdir(filtered_dir):
+        if not filtered_tx_file.endswith('.json'):
+            continue
+            
+        # Load filtered transaction data
+        filtered_tx_path = os.path.join(filtered_dir, filtered_tx_file)
+        filtered_tx = load_filtered_transaction(filtered_tx_path)
+        
+        lead_signature = filtered_tx['signature']
+        token_mint = filtered_tx['mint']
+        lead_slot = filtered_tx['slot']
+        
+        # Find corresponding swap data
+        # The swap file name format is: swaps_{token_mint[:8]}_{lead_signature[:8]}.json
+        swap_file = f"swaps_{token_mint[:8]}_{lead_signature[:8]}.json"
+        swap_path = os.path.join(token_swaps_dir, swap_file)
+        
+        if not os.path.exists(swap_path):
+            print(f"No swap data found for {lead_signature}")
+            continue
+            
+        # Load and process swap data
+        swap_data = load_swap_data(swap_path)
+        
+        if not swap_data.get('result'):
+            continue
+            
+        # Process each swap in the result
+        for swap in swap_data['result']:
+            follower_addr = swap['walletAddress']
+            follower_slot = swap['blockNumber']
+            
+            # Calculate delay in slots
+            delay_slots = follower_slot - lead_slot
+            
+            # Add to copy trades list
+            copy_trades.append({
+                'lead_index': lead_signature,
+                'token': token_mint,
+                'follower_addr': follower_addr,
+                'delay_slots': delay_slots,
+                'lead_slot': lead_slot,
+                'follower_slot': follower_slot,
+                'timestamp': filtered_tx['timestamp']
+            })
+    
+    # Create DataFrame
+    df = pd.DataFrame(copy_trades)
+    
+    # If the DataFrame is empty, return an empty DataFrame with the expected columns
+    if df.empty:
+        return pd.DataFrame(columns=[
+            'lead_index', 'token', 'follower_addr', 'delay_slots', 
+            'lead_slot', 'follower_slot', 'timestamp'
+        ])
+    
+    # Sort by lead_index and delay_slots
+    df = df.sort_values(['lead_index', 'delay_slots'])
+    
+    return df
+
+def save_copy_trades_table(df: pd.DataFrame, wallet_address: str) -> Dict[str, Any]:
+    """
+    Save the copy trades table in multiple formats for easy access
+    """
+    # Create timestamp for file names
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    
+    # Get path to copy_trades directory
+    dirs = ensure_wallet_data_dirs(wallet_address)
+    copy_trades_dir = dirs["copy_trades_dir"]
+    
+    # Save as CSV
+    csv_path = os.path.join(copy_trades_dir, f"copy_trades_{timestamp}.csv")
+    df.to_csv(csv_path, index=False)
+    
+    # Save as Parquet (more efficient for large datasets)
+    parquet_path = os.path.join(copy_trades_dir, f"copy_trades_{timestamp}.parquet")
+    df.to_parquet(parquet_path, index=False)
+    
+    # Save as JSON (for easy programmatic access)
+    json_path = os.path.join(copy_trades_dir, f"copy_trades_{timestamp}.json")
+    df.to_json(json_path, orient='records', indent=2)
+    
+    # Generate summary statistics
+    stats = {
+        "total_copy_trades": len(df),
+        "unique_lead_transactions": df['lead_index'].nunique() if not df.empty else 0,
+        "unique_followers": df['follower_addr'].nunique() if not df.empty else 0,
+        "unique_tokens": df['token'].nunique() if not df.empty else 0,
+        "csv_path": csv_path,
+        "parquet_path": parquet_path,
+        "json_path": json_path
+    }
+    
+    # Add delay statistics if the DataFrame is not empty
+    if not df.empty:
+        delay_stats = df['delay_slots'].describe().to_dict()
+        stats["delay_stats"] = {
+            "mean": delay_stats.get('mean', 0),
+            "min": delay_stats.get('min', 0),
+            "max": delay_stats.get('max', 0),
+            "median": delay_stats.get('50%', 0)
+        }
+    else:
+        stats["delay_stats"] = {
+            "mean": 0,
+            "min": 0,
+            "max": 0,
+            "median": 0
+        }
+    
+    return stats
+
+def analyze_copy_trades(wallet_address: str) -> Dict[str, Any]:
+    """
+    Create and save the copy trades table for a wallet
+    """
+    # Create the copy trades table
+    df = create_copy_trades_table(wallet_address)
+    
+    # Save the table and get statistics
+    stats = save_copy_trades_table(df, wallet_address)
+    
+    return stats
+
 # Main API endpoint
 @app.post("/process-wallet", response_model=ProgressResponse)
 async def process_wallet(request: WalletRequest):
@@ -386,9 +541,12 @@ async def process_wallet(request: WalletRequest):
         # Step 3: Fetch swaps for filtered transactions
         swaps_result = fetch_swaps_for_filtered_transactions(wallet_address)
         
+        # Step 4: Analyze copy trades
+        analysis_result = analyze_copy_trades(wallet_address)
+        
         return ProgressResponse(
             status="success",
-            message=f"Processed wallet {wallet_address}: Found {filter_result['buy_transactions']} memecoin purchases and {swaps_result['total_swaps_found']} copy trades",
+            message=f"Processed wallet {wallet_address}: Found {filter_result['buy_transactions']} memecoin purchases and {analysis_result['total_copy_trades']} copy trades from {analysis_result['unique_followers']} unique followers",
             data={
                 "wallet_address": wallet_address,
                 "transactions_fetched": fetch_result["transactions_fetched"],
@@ -396,15 +554,22 @@ async def process_wallet(request: WalletRequest):
                 "buy_percentage": filter_result["buy_percentage"],
                 "swaps_processed": swaps_result["filtered_transactions_processed"],
                 "tokens_with_swaps": swaps_result["tokens_with_swaps"],
-                "total_swaps_found": swaps_result["total_swaps_found"]
+                "total_swaps_found": swaps_result["total_swaps_found"],
+                "copy_trades": {
+                    "total": analysis_result["total_copy_trades"],
+                    "unique_lead_transactions": analysis_result["unique_lead_transactions"],
+                    "unique_followers": analysis_result["unique_followers"],
+                    "unique_tokens": analysis_result["unique_tokens"],
+                    "delay_stats": analysis_result["delay_stats"]
+                }
             },
-            current_step="fetch_swaps",
-            next_step="analyze_copy_trades",
+            current_step="analyze_copy_trades",
+            next_step="calculate_scores",
             progress={
                 "fetch_transactions": "completed",
                 "filter_transactions": "completed",
                 "fetch_swaps": "completed",
-                "analyze_copy_trades": "pending",
+                "analyze_copy_trades": "completed",
                 "calculate_scores": "pending"
             }
         )
