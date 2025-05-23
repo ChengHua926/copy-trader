@@ -34,7 +34,7 @@ MORALIS_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjdhNGZlYWQ5
 HELIUS_BASE_URL = "https://api.helius.xyz/v0/addresses"
 MORALIS_BASE_URL = "https://solana-gateway.moralis.io/token/mainnet"
 TRANSACTION_TYPES = ["SWAP", "TRANSFER"]
-TOTAL_TRANSACTIONS_NEEDED = 500
+TOTAL_TRANSACTIONS_NEEDED = 700
 TRANSACTIONS_PER_PAGE = 100
 
 # Follower scoring constants
@@ -390,9 +390,9 @@ def fetch_swaps_for_filtered_transactions(wallet_address: str) -> Dict[str, Any]
             print(f"Token Address: {token_address}")
             print(f"Timestamp: {timestamp}")
             
-            # Fetch swaps from timestamp to timestamp + 2 seconds
+            # Fetch swaps from timestamp to timestamp + 3 seconds
             from_date = timestamp
-            to_date = timestamp + 2
+            to_date = timestamp + 3
             
             # Fetch all swaps for this token in the time window
             all_results = fetch_all_swaps(token_address, from_date, to_date)
