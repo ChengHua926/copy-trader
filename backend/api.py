@@ -30,7 +30,7 @@ app.add_middleware(
 
 # Constants
 HELIUS_API_KEY = "8d024022-a5bb-4586-a7ac-6aada64c3c8f"
-MORALIS_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjdhNGZlYWQ5LTcwYTctNDM4Yi04OTllLWNkZTdkMWQxZGM5MSIsIm9yZ0lkIjoiNDQ4NTk4IiwidXNlcklkIjoiNDYxNTUyIiwidHlwZUlkIjoiOWI5ZjBiNjgtZjEzNy00M2Y0LWE3YzAtYzc0NGJmYzM1ZDk2IiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NDc5NDEwMTIsImV4cCI6NDkwMzcwMTAxMn0.khJU9l1Q-uvGQsE5vAtrV6__CUqkSHLATociQt3QuA8"
+MORALIS_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6ImJkNzAzMjg4LWE3NDktNDM4OC1iOWNkLTUwMjlmY2U4Y2Q1ZSIsIm9yZ0lkIjoiNDQ1MDE1IiwidXNlcklkIjoiNDU3ODY1IiwidHlwZUlkIjoiYmZkZGI3YmEtMGUzNi00MmY1LWExYTgtYmE2Mzg4N2MxMmUwIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NDYyMzYxOTgsImV4cCI6NDkwMTk5NjE5OH0.gfohteTPWzmjXQeIvbEhwYgrVLDYAIQyhKeGVcBLpQc"
 HELIUS_BASE_URL = "https://api.helius.xyz/v0/addresses"
 MORALIS_BASE_URL = "https://solana-gateway.moralis.io/token/mainnet"
 TRANSACTION_TYPES = ["SWAP", "TRANSFER"]
@@ -647,9 +647,9 @@ def calculate_scores(metrics: pd.DataFrame) -> pd.DataFrame:
     
     # Calculate copy score
     metrics['score'] = (
-        0.6 * metrics['freq_norm'] +
+        0.5 * metrics['freq_norm'] +
         0.3 * metrics['speed_norm'] +
-        0.1 * metrics['breadth_norm']
+        0.2 * metrics['breadth_norm']
     )
     
     # Assign tiers based on score

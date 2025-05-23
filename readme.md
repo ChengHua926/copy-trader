@@ -2,8 +2,6 @@
 
 This project is a web application designed to analyze Solana wallet transactions to identify potential copy traders. It provides insights into wallets that mimic the trading behavior of a target wallet.
 
-> ⚠️ **Important Notice (May 22nd):** The Moralis API, used for fetching detailed token swap data, has a free tier with usage limits. As of May 22nd, these limits may have been exhausted. If you are testing this project on this date, the backend processes relying on Moralis (specifically, fetching follower transaction details) will not not function as expected or could return incomplete data.
-
 ## Workflow: How We Identify Copy Traders
 
 This tool follows a multi-step process to identify and score potential copy traders. Let's walk through an example: suppose you want to analyze the trading activity of **Wallet A**.
