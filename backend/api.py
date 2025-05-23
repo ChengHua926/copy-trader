@@ -40,7 +40,7 @@ TRANSACTIONS_PER_PAGE = 100
 # Follower scoring constants
 WINDOW = 10  # Maximum delay for speed normalization
 TIER_BOUNDARIES = {
-    'Gold': 0.75,
+    'Gold': 0.7,
     'Silver': 0.5,
     'Bronze': 0.3
 }
